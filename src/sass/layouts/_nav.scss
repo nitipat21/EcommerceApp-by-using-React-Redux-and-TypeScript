@@ -1,0 +1,18 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--pink);
+    color: var(--lessBright-white);
+
+    .nav-left,.nav-right{
+        display: flex;
+        gap: 0.5rem;
+
+        button{
+            padding: 0.25rem;
+        }
+    }
+
+}
