@@ -1,0 +1,10 @@
+.ingredientCard{
+    .ingredient-button{
+        position: absolute;
+
+        button{
+            background-color: var(--green);
+            color: var(--lessBright-white);
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.bestSellerCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .quickAdd-button{
+        width: 90%;
+        margin: 0 auto;
+    
+        button{
+            width: 100%;
+            
+        }
+    }
+}
