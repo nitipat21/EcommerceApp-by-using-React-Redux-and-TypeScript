@@ -1,9 +1,10 @@
 import React from 'react'
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Banner0 = () => {
   return (
     <div className="banner0-container">
-        <h1>Enjoy free shipping on orders of $29.99 or more</h1>
+        <h1>Enjoy free shipping on orders of $29.99 or more <FaLongArrowAltRight/></h1>
     </div>
   )
 }

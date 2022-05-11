@@ -6,16 +6,26 @@ import SearchLocation from '../Layouts/SearchLocation';
 import Ingredients from '../Layouts/Ingredients';
 import MainProducts from '../Layouts/MainProducts';
 import Nav from '../Layouts/Nav';
-import ReviewCard from '../Components/ReviewCard';
 import Reviews from '../Layouts/Reviews';
 import Instagram from '../Layouts/Instagram';
 import Footer from '../Layouts/Footer';
+import Menu from '../Components/Menu';
+import SearchBar from '../Components/SearchBar';
+import { RootState } from '../store';
+import { useSelector } from 'react-redux';
+import Cart from '../Components/Cart';
 
 const HomePage = () => {
+
+  const isDisplaySearchBar = useSelector((state:RootState)=> state.shop.isDisplaySearchBar);
+  const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
+
   return (
     <div className="homePage">
         <Banner0/>
-        <Nav/>
+        {isDisplaySearchBar ? <SearchBar/> : <Nav/> }
+        <Menu/>
+        {isDisplayCart ? <Cart/> : null}
         <main className='main-homePage'>
             <Banner1/>
             <Banner2/>
@@ -25,8 +35,8 @@ const HomePage = () => {
             <SearchLocation/>
             <Reviews/>
             <Instagram/>
-            <Footer/>
         </main>
+        <Footer/>
     </div>
   )
 }

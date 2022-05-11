@@ -1,0 +1,41 @@
+.menu-container{
+    position: absolute;
+    height: 90vh;
+    width: 100vw;
+    background-color: var(--lessBright-white);
+    transform: translateX(-100%);
+    transition: all 0.5s;
+    font-size: 1.25rem;
+    
+    ul{
+        padding: 2.5rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        li{
+            list-style: none;
+            color: var(--red);
+
+            svg{
+                font-size: 1.5rem;
+            }
+
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding-top: 1rem;
+            }
+        }
+    }
+}
+
+.menu-container.displayMenu{
+    transform: translateX(0%);
+    transition: all 0.5s;
+}
