@@ -1,0 +1,54 @@
+.itemCartCard{
+    display: flex;
+    padding: 0.5rem 0rem;
+    height: 6.25rem;
+    width: 100%;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(51,50,50,.2);
+    
+    .itemCart-image{
+
+        img{
+            max-width: 5rem;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .itemCart-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.25rem;
+
+        .itemCart-wrap{
+            display: flex;
+            justify-content: space-between;
+
+            .itemCart-name{
+                align-self: center;
+            }
+
+            .itemCart-remove{
+                svg{
+                    opacity: 0.2;
+                }
+            }
+
+            .itemCart-button{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+    
+                svg{
+                    opacity: 0.4;
+                }
+            }
+
+            .itemCart-price{
+                align-self: flex-end;
+            }
+        }
+    }
+}

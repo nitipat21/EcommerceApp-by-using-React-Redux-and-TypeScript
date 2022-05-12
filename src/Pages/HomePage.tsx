@@ -14,18 +14,23 @@ import SearchBar from '../Components/SearchBar';
 import { RootState } from '../store';
 import { useSelector } from 'react-redux';
 import Cart from '../Components/Cart';
+import { useEffect } from 'react';
 
 const HomePage = () => {
-
+  
   const isDisplaySearchBar = useSelector((state:RootState)=> state.shop.isDisplaySearchBar);
   const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
+
+  // useEffect(()=>{
+  //   isDisplayCart ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
+  // },[isDisplayCart]);
 
   return (
     <div className="homePage">
         <Banner0/>
         {isDisplaySearchBar ? <SearchBar/> : <Nav/> }
         <Menu/>
-        {isDisplayCart ? <Cart/> : null}
+        <Cart/>
         <main className='main-homePage'>
             <Banner1/>
             <Banner2/>
