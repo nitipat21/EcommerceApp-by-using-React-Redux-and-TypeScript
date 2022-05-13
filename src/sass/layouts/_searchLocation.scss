@@ -5,8 +5,19 @@
     text-align: center;
     background-color: var(--red);
     color: var(--lessBright-white);
+    padding: 1rem;
+    gap: 1rem;
 
-    a{
-        color: var(--lessBright-white);
+    h1{
+        font-size: clamp(2rem, 2vw, 4rem);
     }
+
+    .findLocation-link{
+        a{
+            color: var(--lessBright-white);
+            font-size: clamp(1.25rem, 2vw, 2rem);
+        }
+    }
+
+    
 }

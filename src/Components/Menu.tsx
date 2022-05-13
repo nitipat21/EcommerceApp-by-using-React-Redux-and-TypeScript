@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp, FaFacebookSquare, FaTimes, FaInstagramSquare, FaTwitterSquare, FaPinterest, FaPinterestSquare } from "react-icons/fa";
 import SubMenuProducts from './SubMenuProducts';
 import SubMenuOurStory from './SubMenuOurStory';
 import { menuSliceActions } from '../store/menuSlice';
@@ -23,8 +23,14 @@ const Menu = () => {
     dispatch(menuSliceActions.displayOurStory())
   }
 
+  const displayMenu = () => {
+    dispatch(menuSliceActions.displayMenu());
+  }
+
   return (
     <div className={ isDisplayMenu ? 'menu-container displayMenu' : 'menu-container'}>
+      <FaTimes onClick={displayMenu}/>
+      <div className="menu-wrapper">
         <ul>
             <li>
               <h3 onClick={displayProducts}>Products <span>{isDisplayProducts ? <FaCaretUp/>:<FaCaretDown/>}</span></h3>
@@ -41,6 +47,13 @@ const Menu = () => {
               <h3>Contact Us</h3>
             </li>
         </ul>
+        <div className="socialMediaLink-container">
+          <FaFacebookSquare/>
+          <FaInstagramSquare/>
+          <FaTwitterSquare/>
+          <FaPinterestSquare/>
+        </div>
+      </div>
     </div>
   )
 }

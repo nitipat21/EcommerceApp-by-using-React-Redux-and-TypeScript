@@ -14,19 +14,22 @@ import SearchBar from '../Components/SearchBar';
 import { RootState } from '../store';
 import { useSelector } from 'react-redux';
 import Cart from '../Components/Cart';
+import PageOverlay from '../Layouts/PageOverlay';
 import { useEffect } from 'react';
 
 const HomePage = () => {
   
   const isDisplaySearchBar = useSelector((state:RootState)=> state.shop.isDisplaySearchBar);
   const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
+  const isDisplayMenu = useSelector((state:RootState)=> state.shop.isDisplayMenu);
 
-  // useEffect(()=>{
-  //   isDisplayCart ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible';
-  // },[isDisplayCart]);
+  useEffect(()=>{
+    isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
+  },[isDisplayCart,isDisplayMenu]);
 
   return (
     <div className="homePage">
+        <PageOverlay/>
         <Banner0/>
         {isDisplaySearchBar ? <SearchBar/> : <Nav/> }
         <Menu/>

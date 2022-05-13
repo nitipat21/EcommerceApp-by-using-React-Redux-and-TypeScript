@@ -2,8 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--pink);
+    background-color: var(--lessBright-white);
 
     .instagram-link{
         text-align: center;
+        padding: 0rem 1rem 1rem 1rem;
+
+        h1{
+            font-size: clamp(2rem,2vw,4rem);
+        }
+
+        h3{
+            font-size: clamp(1.25rem,2vw,1.5rem);
+        }
     }
 }

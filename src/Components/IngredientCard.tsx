@@ -1,10 +1,11 @@
+import { FaInfoCircle } from 'react-icons/fa'
 import ImageIngredient1 from '../Assets/Images/ingredient1.jpg'
 
 const IngredientCard = () => {
   return (
     <div className="ingredientCard">
         <div className="ingredient-button">
-            <button>info</button>
+            <FaInfoCircle/>
         </div>
         <div className="ingredient-image">
             <img src={ImageIngredient1}></img>

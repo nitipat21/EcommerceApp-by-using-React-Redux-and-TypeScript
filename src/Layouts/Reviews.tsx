@@ -1,3 +1,4 @@
+import { FaQuoteLeft } from 'react-icons/fa'
 import ImageReview1 from '../Assets/Images/review1.jpg'
 import ReviewCard from '../Components/ReviewCard'
 
@@ -8,7 +9,7 @@ const Reviews = () => {
             <img src={ImageReview1}></img>
         </div>
         <div className="review-symbol">
-            <h1>''</h1>
+            <FaQuoteLeft/>
         </div>
         <div className="review-text-container">
             <ReviewCard />

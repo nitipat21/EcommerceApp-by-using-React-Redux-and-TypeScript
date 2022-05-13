@@ -1,10 +1,10 @@
 .ingredientCard{
     .ingredient-button{
         position: absolute;
-
-        button{
-            background-color: var(--green);
-            color: var(--lessBright-white);
+        padding: 0.25rem;
+        svg{
+            font-size: clamp(1.5rem, 2vw, 4rem);
+            opacity: 0.6;
         }
     }
 }

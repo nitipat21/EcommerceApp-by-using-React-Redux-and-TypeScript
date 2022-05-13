@@ -4,12 +4,16 @@
     align-items: center;
 
     .review-image{
-
-
         img {
             object-fit: cover;
             object-position: 60% 40%;
             aspect-ratio: 1/0.75;
+        }
+    }
+
+    .review-symbol{
+        svg{
+            font-size: clamp(2rem,2vw,4rem);
         }
     }
 

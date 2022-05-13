@@ -4,6 +4,19 @@
     color: var(--lessBright-white);
     padding: 1rem;
 
+    .ingredients-header{
+        h1{
+            font-size: clamp(2rem, 2vw, 4rem);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .ingredients-paragraph{
+        p{
+            font-size: clamp(1rem, 2vw, 1.5rem);
+        }
+    }
+
     .ingredientCard-container{
         display: grid;
         grid-template-columns: auto auto auto;
@@ -13,6 +26,7 @@
 
     .ingredients-link a{
         color: var(--lessBright-white);
+        font-size: clamp(1rem, 2vw, 1.5rem);
     }
     
 }

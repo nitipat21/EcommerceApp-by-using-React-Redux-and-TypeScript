@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SubmenuProducts = () => {
+const SubMenuProducts = () => {
   return (
     <div className='subMenuProducts'>
         <h5>Best Sellers</h5>
@@ -11,4 +11,4 @@ const SubmenuProducts = () => {
   )
 }
 
-export default SubmenuProducts
+export default SubMenuProducts

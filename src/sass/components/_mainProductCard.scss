@@ -11,6 +11,12 @@
         padding: 0.5rem;
     }
 
+    .mainProduct-name{
+        h1{
+            font-size: clamp(2rem, 4vw, 4rem);
+        }
+    }
+
     .mainProduct-image img{
         object-fit: cover;
         object-position: center;
@@ -19,5 +25,9 @@
 
     .mainProduct-link{
         text-decoration: underline;
+
+        a{
+            font-size: clamp(1rem, 2vw, 1.5rem);
+        }
     }
 }

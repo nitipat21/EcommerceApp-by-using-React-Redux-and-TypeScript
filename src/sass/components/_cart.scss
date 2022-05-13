@@ -3,31 +3,31 @@
     flex-direction: column;
     gap: 1rem;
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 20rem;
-    min-height: 100vh;
+    max-height: 100vh;
     padding: 0.5rem 1rem;
     transform: translateX(100%);
     transition: all 0.5s;
+    z-index: 2;
 
     .cart-title{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1rem;
-    }
+    };
 
     .freeShipping{
         meter{
             width: 100%;
-        }
-    }
+        };
+    };
 
     .itemCartCard-Container{
         overflow-y: auto;
-    }
+    };
 
     .applyCoupon{
         display: flex;
@@ -35,26 +35,28 @@
         
         input{
             padding: 0.5rem;
-        }
+        };
 
         button{
             padding: 0.5rem;
-        }
-    }
+        };
+    };
 
     .subtotal{
         display: flex;
         justify-content: space-between;
-    }
+    };
 
     .checkout{
+
+        margin-bottom: 0.5rem;
         button{
             padding: 0.5rem;
             width: 100%;
-        }
-    }
+        };
+    };
+};
 
-}
 
 .cart.displayCart{
     transform: translateX(0%);

@@ -1,3 +1,4 @@
+import { FaLocationArrow } from "react-icons/fa"
 
 const SearchLocation = () => {
   return (
@@ -6,7 +7,7 @@ const SearchLocation = () => {
             <h1>'Shop Name' in your neighborhood</h1>
         </div>
         <div className="findLocation-link">
-            <a href="">Find A Store</a>
+            <a href="">Find A Store <span><FaLocationArrow/></span></a>
         </div>
     </div>
   )
