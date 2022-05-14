@@ -20,12 +20,6 @@ const Footer = () => {
                 <li>PRIVACY</li>
                 <li>SHIPPING & RETURNS</li>
             </ul>
-            <div className="certificate">
-                <FaPagelines/>
-                <FaCertificate/>
-                <FaUtensils/>
-                <FaAward/>
-            </div>
             <div className="socialMedia">
                 <div className="socialMedia-header">
                     <h3>Be in the know</h3>
@@ -41,6 +35,12 @@ const Footer = () => {
                 <input type='email' placeholder='Email Address' value={email} onChange={(event)=>setEmail(event.target.value)}/>
                 <a onClick={subscribe}>SUBSCRIBE</a>
                 { submit && email === '' ? <h3>Please enter your email address</h3> : '' }
+            </div>
+            <div className="certificate">
+                <FaPagelines/>
+                <FaCertificate/>
+                <FaUtensils/>
+                <FaAward/>
             </div>
             <div className="copyright">
                 <small>&copy; Copyright 2018, Example Corporation</small>

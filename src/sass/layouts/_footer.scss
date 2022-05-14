@@ -1,8 +1,9 @@
+@use '../base/mixins' as mixins;
+
 footer{
     background-color: var(--red);
     color: var(--lessBright-white);
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
     text-align: center;
     padding: 4rem 1rem 1rem 1rem;
@@ -21,6 +22,7 @@ footer{
 
     .certificate{
         display: flex;
+        justify-content: center;
         gap: 1rem;
         padding: 1rem 0rem;
 
@@ -88,4 +90,10 @@ footer{
             font-size: clamp(1rem,3vw,1.5rem);
         }
     }
+
+    // @include mixins.medium-up{
+    //     &{
+            
+    //     }
+    // }
 }
