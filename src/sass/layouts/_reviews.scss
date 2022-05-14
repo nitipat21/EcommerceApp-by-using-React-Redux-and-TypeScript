@@ -1,9 +1,14 @@
+@use '../base/mixins' as mixins;
+
 .review-container{
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     align-items: center;
+    max-width: 30rem;
 
     .review-image{
+
         img {
             object-fit: cover;
             object-position: 60% 40%;
@@ -11,9 +16,37 @@
         }
     }
 
-    .review-symbol{
-        svg{
-            font-size: clamp(2rem,2vw,4rem);
+    .review-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        gap: 1rem;
+
+        .review-text-container{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+
+        .review-symbol{
+            svg{
+                font-size: clamp(2rem,2vw,4rem);
+            }
+        }
+    }
+
+    
+
+    @include mixins.medium-up{
+
+        &{
+            flex-direction: row;
+            max-width: 90rem;
         }
     }
 

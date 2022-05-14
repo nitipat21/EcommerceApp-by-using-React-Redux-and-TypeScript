@@ -1,3 +1,5 @@
+@use '../base/mixins' as mixins;
+
 .mainProductCard{
     display: flex;
     flex-direction: column;
@@ -17,10 +19,12 @@
         }
     }
 
-    .mainProduct-image img{
-        object-fit: cover;
-        object-position: center;
-        aspect-ratio: 1/0.5;
+    .mainProduct-image {
+        img{
+            object-fit: cover;
+            object-position: center;
+            aspect-ratio: 1/0.5;
+        }
     }
 
     .mainProduct-link{
@@ -28,6 +32,17 @@
 
         a{
             font-size: clamp(1rem, 2vw, 1.5rem);
+        }
+    }
+
+    @include mixins.medium-up{
+        &{
+
+            .mainProduct-image {
+                img{
+                    aspect-ratio: 1/1;
+                }
+            }
         }
     }
 }

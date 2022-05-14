@@ -1,7 +1,13 @@
+@use '../base/mixins' as mixins;
+
 .bestSellerCard{
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     align-items: center;
+    width: 100vw;
+    padding: 1rem;
+
 
     .quickAdd-button{
         width: 90%;
@@ -9,21 +15,50 @@
     
         button{
             width: 100%;
-            font-size: clamp(1.25rem, 2vw, 2rem);
+            font-size: clamp(1.25rem, 3vw, 2rem);
         }
     }
 
     .bestSeller-name{
         h1{
-            font-size: clamp(2rem, 2vw, 4rem);
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 3rem);
         }
+    }
+
+    .bestSeller-tag{
+        position: relative;
+        border-radius: 2rem;
+        background-color: var(--pink);
+        color: var(--lessBright-white);
+        padding: 1rem;
+        transform: translateY(50%);
     }
 
     .bestSeller-rating,
     .bestSeller-price,
     .bestSeller-tag{
         h3{
-            font-size: clamp(1.25rem, 2vw, 2rem);
+            font-size: clamp(1.25rem, 3vw, 2rem);
+        }
+    }
+
+    @include mixins.small-up{
+        &{
+            width: 50vw;
+        }
+    }
+
+    @include mixins.large{
+        &{
+            width: 33vw;
+        }
+    }
+
+    @include mixins.extra-large{
+        &{
+            width: 100%;
+            max-width: 30rem;
         }
     }
 }

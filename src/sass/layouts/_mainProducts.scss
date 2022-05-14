@@ -1,4 +1,12 @@
+@use '../base/mixins' as mixins;
+
 .mainProducts-container{
     display: grid;
     grid-template-rows: auto auto auto;
+
+    @include mixins.medium-up{
+        &{
+            grid-template-columns: auto auto auto;
+        }
+    }
 }

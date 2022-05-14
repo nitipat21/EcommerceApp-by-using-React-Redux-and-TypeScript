@@ -1,13 +1,21 @@
+@use '../base/mixins' as mixins;
+
 .instagram-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--pink);
-    background-color: var(--lessBright-white);
+    background-color: var(--pink);
+    color: var(--lessBright-white);
+
+    .instagram-image-container{
+        display: flex;
+        max-width: 100vw;
+        overflow-x: scroll;
+    }
 
     .instagram-link{
         text-align: center;
-        padding: 0rem 1rem 1rem 1rem;
+        padding: 4rem 1rem;
 
         h1{
             font-size: clamp(2rem,2vw,4rem);
@@ -15,6 +23,16 @@
 
         h3{
             font-size: clamp(1.25rem,2vw,1.5rem);
+        }
+    }
+
+    @include mixins.medium-up{
+        &{
+            .instagram-image-container{
+                img{
+                    max-width: 33.33vw;
+                }
+            }
         }
     }
 }

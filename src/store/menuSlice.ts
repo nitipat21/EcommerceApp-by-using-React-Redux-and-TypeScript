@@ -6,7 +6,8 @@ const initialState:menuState = {
     isDisplayProducts:false,
     isDisplayOurStory:false,
     isDisplaySearchBar:false,
-    isDisplayCart:false
+    isDisplayCart:false,
+    isDisplayIngredientInfo:false
 }
 
 export interface menuState {
@@ -15,6 +16,7 @@ export interface menuState {
     isDisplayOurStory:boolean;
     isDisplaySearchBar:boolean;
     isDisplayCart:boolean;
+    isDisplayIngredientInfo:boolean;
 }
 
 const menuSlice = createSlice({
@@ -35,6 +37,9 @@ const menuSlice = createSlice({
         },
         displayCart(state) {
             state.isDisplayCart = !state.isDisplayCart;
+        },
+        displayIngredientInfo(state) {
+            state.isDisplayIngredientInfo = !state.isDisplayIngredientInfo;
         }
     }
 });

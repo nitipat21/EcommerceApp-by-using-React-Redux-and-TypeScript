@@ -8,14 +8,18 @@ const Reviews = () => {
         <div className="review-image">
             <img src={ImageReview1}></img>
         </div>
-        <div className="review-symbol">
-            <FaQuoteLeft/>
-        </div>
-        <div className="review-text-container">
-            <ReviewCard />
-        </div>
-        <div className="review-pageCount">
-            <h1>•••</h1>
+        <div className="review-wrapper">
+            <div className="review-symbol">
+                <FaQuoteLeft/>
+            </div>
+            <div className="review-text-container">
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+            </div>
+            <div className="review-pageCount">
+                <h1>•••</h1>
+            </div>
         </div>
     </div>
   )

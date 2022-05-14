@@ -1,9 +1,33 @@
+@use '../base/mixins' as mixins;
+
 .bestSellers-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    
+    .bestSellers-title{
+        align-self: center;
+        padding: 1rem;
 
-    h1{
-        font-size: clamp(2rem, 2vw, 4rem);
+        h1{
+            font-size: clamp(2rem, 3vw, 4rem);
+        }
+    }
+
+    .bestSellerCard-container{
+        display: flex;
+        overflow-x: auto;
+        width: 100vw;
+        align-self: flex-start;
+    }
+
+    @include mixins.extra-large{
+        &{
+            .bestSellerCard-container{
+                width: unset;
+                align-self: unset;
+            }
+        }
     }
 }

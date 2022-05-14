@@ -1,6 +1,9 @@
 .reviewCard{
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
 }

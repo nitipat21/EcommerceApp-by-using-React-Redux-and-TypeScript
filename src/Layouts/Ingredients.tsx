@@ -1,9 +1,15 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
 import IngredientCard from '../Components/IngredientCard'
+import IngredientInfo from '../Components/IngredientInfo';
+import { RootState } from '../store'
 
 const Ingredients = () => {
+
+    const isDisplayIngredientInfo = useSelector((state:RootState)=> state.shop.isDisplayIngredientInfo);
+
   return (
     <div className="ingredients-container">
+        {isDisplayIngredientInfo ? <IngredientInfo/> : ''}
         <div className="ingredientCard-container">
             <IngredientCard/>
             <IngredientCard/>

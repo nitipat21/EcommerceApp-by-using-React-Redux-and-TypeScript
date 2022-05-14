@@ -8,6 +8,8 @@ const Bestsellers = () => {
         </div>
         <div className="bestSellerCard-container">
             <BestSellerCard/>
+            <BestSellerCard/>
+            <BestSellerCard/>
         </div>
         <div className="pageCount">
             <h1>•••</h1>
