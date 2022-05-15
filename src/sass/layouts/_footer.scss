@@ -7,9 +7,14 @@ footer{
     align-items: center;
     text-align: center;
     padding: 4rem 1rem 1rem 1rem;
-    gap: 1rem;
+    gap: 2rem;
+    grid-template-areas:    'link'
+                            'social'  
+                            'email'
+                            'copyright';
 
     .linkList{
+        grid-area: link;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -20,18 +25,8 @@ footer{
         }
     }
 
-    .certificate{
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1rem 0rem;
-
-        svg{
-            font-size: clamp(2rem,3vw,4rem);
-        }
-    }
-
     .socialMedia{
+        grid-area: social;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -56,11 +51,13 @@ footer{
     }
 
     .email-input{
+        grid-area: email;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 1rem 0rem;
         gap: 1rem;
+        height: 100%;
 
         input{
             background-color: transparent;
@@ -91,9 +88,52 @@ footer{
         }
     }
 
-    // @include mixins.medium-up{
-    //     &{
+    .footer-wrapper{
+        grid-area: copyright;
+        .certificate{
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0rem;
+    
+            svg{
+                font-size: clamp(2rem,3vw,4rem);
+            }
+        }
+    }
+
+    @include mixins.medium-up{
+        &{
+            padding: 4rem;
+            grid-template-areas:    'link email'
+                                    '. .'
+                                    'copyright social';
+            .linkList{
+                text-align: left;
+            }
+
+            .socialMedia{
+                align-items: flex-start;
+            }
             
-    //     }
-    // }
+            .email-input{
+                align-items: flex-start;
+
+                input{
+                    text-align: left;
+                }
+            }
+
+            .footer-wrapper{
+                .certificate{
+                    justify-content: flex-start;
+                }
+
+                .copyright{
+                    text-align: left;
+                }
+            }
+                
+        }
+    }
 }

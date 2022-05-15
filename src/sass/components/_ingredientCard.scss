@@ -1,12 +1,16 @@
 .ingredientCard{
     position: relative;
+    max-width: 60rem;
 
     .ingredient-button{
         position: absolute;
+        top: 0;
+        right: 0;
         padding: 0.25rem;
         svg{
             font-size: clamp(1.5rem, 2vw, 4rem);
             opacity: 0.6;
+            color: var(--lessBright-white);
         }
     }
 }

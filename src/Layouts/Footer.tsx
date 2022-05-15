@@ -36,14 +36,16 @@ const Footer = () => {
                 <a onClick={subscribe}>SUBSCRIBE</a>
                 { submit && email === '' ? <h3>Please enter your email address</h3> : '' }
             </div>
-            <div className="certificate">
-                <FaPagelines/>
-                <FaCertificate/>
-                <FaUtensils/>
-                <FaAward/>
-            </div>
-            <div className="copyright">
-                <small>&copy; Copyright 2018, Example Corporation</small>
+            <div className="footer-wrapper">
+                <div className="certificate">
+                    <FaPagelines/>
+                    <FaCertificate/>
+                    <FaUtensils/>
+                    <FaAward/>
+                </div>
+                <div className="copyright">
+                    <small>&copy; Copyright 2018, Example Corporation</small>
+                </div>
             </div>
         </footer>
     )

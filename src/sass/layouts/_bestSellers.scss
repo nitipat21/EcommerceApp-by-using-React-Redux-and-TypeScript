@@ -5,8 +5,10 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    padding-block: 4rem;
     
     .bestSellers-title{
+        text-align: center;
         align-self: center;
         padding: 1rem;
         color: var(--red);
