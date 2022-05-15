@@ -11,9 +11,6 @@ const Bestsellers = () => {
             <BestSellerCard/>
             <BestSellerCard/>
         </div>
-        <div className="pageCount">
-            <h1>•••</h1>
-        </div>
     </div>
   )
 }

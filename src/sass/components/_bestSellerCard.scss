@@ -7,39 +7,50 @@
     align-items: center;
     width: 100vw;
     padding: 1rem;
-
+    gap: 0.5rem;
+    scroll-snap-align: start;
 
     .quickAdd-button{
-        width: 90%;
+        width: 75%;
         margin: 0 auto;
     
         button{
             width: 100%;
-            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-size: var(--h1-medium-size);
+            background-color: var(--lessBright-white);
+            color: var(--pink);
+            border: 2px var(--pink) solid;
+            padding-block: 0.5rem;
+            transition: 0.3s;
+
+            &:hover{
+                color: var(--lessBright-white);
+                background-color: var(--pink);
+            }
         }
     }
 
     .bestSeller-name{
         h1{
             text-align: center;
-            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-size: var(--h1-large-size);
         }
     }
 
     .bestSeller-tag{
-        position: relative;
+        position: sticky;
         border-radius: 2rem;
         background-color: var(--pink);
         color: var(--lessBright-white);
         padding: 1rem;
-        transform: translateY(50%);
+        transform: translateY(calc(50% + 0.5rem));
     }
 
     .bestSeller-rating,
     .bestSeller-price,
     .bestSeller-tag{
         h3{
-            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-size: var(--p-size);
         }
     }
 

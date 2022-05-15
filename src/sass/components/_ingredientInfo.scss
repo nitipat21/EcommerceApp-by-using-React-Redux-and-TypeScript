@@ -1,15 +1,19 @@
 .ingredient-info{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--green);
     opacity: 1;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 0%;
-    left: 0%;
+    top: 50%;
+    right: 50%;
     width: 100%;
+    max-width: 75vw;
     height: 100%;
+    max-height: 15rem;
     z-index: 999;
+    transform: translate(50%, -50%);
+    box-shadow: var(--overlay-shadow);
 
     svg{
         font-size: clamp(1rem, 3vw, 3rem);

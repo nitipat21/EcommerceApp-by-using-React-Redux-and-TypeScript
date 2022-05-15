@@ -1,3 +1,11 @@
+:root{
+    --p-size: clamp(1rem, 2vw, 3rem);
+    --h1-small-size: clamp(0.75rem,1vw, 1.5rem);
+    --h1-medium-size: clamp(1.5rem, 2vw, 3rem);
+    --h1-large-size: clamp(2rem, 3vw, 4rem);
+}
+
+
 *{
     font-family: 'Noto Sans', sans-serif;
 }
