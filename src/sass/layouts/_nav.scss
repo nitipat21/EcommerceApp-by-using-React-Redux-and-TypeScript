@@ -23,6 +23,16 @@ nav{
                 display: flex;
                 gap: 2.5rem;
                 padding-right: 2rem;
+
+                a{
+                    border-bottom: 2px solid #FFFFFF00;
+                    padding-bottom: 3px;
+                }
+
+                .nav-active, .blog:hover, .contactUs:hover{
+                    border-bottom: 2px solid #fff;
+                }
+
             }
             
             svg{
@@ -47,12 +57,11 @@ nav{
         width: 100%;
         left: 0;
         opacity: 1;
+        padding: 2rem 4rem;
 
-        .subMenuProducts{
+        .subNavProducts{
             margin: 0 auto;
             max-width: 90rem;
-            height: 20rem;
-            padding: 2rem 4rem;
         }
     }
 

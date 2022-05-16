@@ -3,8 +3,8 @@ import { menuSliceActions } from "../store/menuSlice";
 import { FaBars,FaSearch, FaUser,FaShoppingCart } from "react-icons/fa";
 import { RootState } from "../store";
 import { useEffect } from "react";
-import SubMenuProducts from "../Components/SubMenuProducts";
-import SubMenuOurStory from "../Components/SubMenuOurStory";
+import SubNavProducts from "../Components/SubNavProducts";
+import SubNavOurStory from "../Components/SubNavOurStory";
 
  
 
@@ -29,11 +29,21 @@ const Nav = () => {
   };
 
   const displayNavProducts = () => {
+    dispatch(menuSliceActions.displayNavOurStory(false));
     dispatch(menuSliceActions.displayNavProducts(true));
-  }
+  };
 
   const hideNavProducts = () => {
     dispatch(menuSliceActions.displayNavProducts(false));
+  };
+
+  const displayNavOurStory = () => {
+    dispatch(menuSliceActions.displayNavProducts(false));
+    dispatch(menuSliceActions.displayNavOurStory(true));
+  }
+
+  const hideNavOurStory = () => {
+    dispatch(menuSliceActions.displayNavOurStory(false));
   }
 
   const setWindowWidth = () => {
@@ -41,6 +51,8 @@ const Nav = () => {
   };
 
   const isMouseOverProducts = useSelector((state:RootState) => state.shop.isMouseOverProducts);
+
+  const isMouseOverOurStory = useSelector((state:RootState) => state.shop.isMouseOverOurStory);
  
   const isHideSideMenu = useSelector((state:RootState) => state.shop.isHideSideMenu);
 
@@ -58,7 +70,6 @@ const Nav = () => {
     } else {
       hideSideMenu(false);
     }
-
   },[windowWidth]);
 
   return (
@@ -67,8 +78,8 @@ const Nav = () => {
           <div className="nav-left">
             {isHideSideMenu ?
               <div className="navLink-wrapper">
-                <a href="" onMouseOver={displayNavProducts}>Products</a>
-                <a href="">Our Story</a>
+                <a onMouseOver={displayNavProducts} onClick={displayNavProducts} className={isMouseOverProducts ? 'nav-active' : ''}>Products</a>
+                <a onMouseOver={displayNavOurStory} onClick={displayNavOurStory} className={isMouseOverOurStory ? 'nav-active' : ''}>Our Story</a>
               </div>
               :
               <>
@@ -83,8 +94,8 @@ const Nav = () => {
         <div className="nav-right">
             {isHideSideMenu && 
               <div className="navLink-wrapper">
-                <a href="">Blog</a>
-                <a href="">Contact Us</a>
+                <a className="blog">Blog</a>
+                <a className="contactUs">Contact Us</a>
               </div>
             }
             {isHideSideMenu && <FaSearch onClick={displaySearchBar}/>}
@@ -93,8 +104,13 @@ const Nav = () => {
         </div>
       </div>
       {isMouseOverProducts && 
-        <div className="subMenu-wrapper" onMouseOut={hideNavProducts}>
-          <SubMenuProducts/>
+        <div className="subMenu-wrapper" onMouseLeave={hideNavProducts}>
+          <SubNavProducts/>
+        </div>
+      }
+      {isMouseOverOurStory && 
+        <div className="subMenu-wrapper" onMouseLeave={hideNavOurStory}>
+          <SubNavOurStory/>
         </div>
       }
     </nav>
