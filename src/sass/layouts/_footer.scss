@@ -3,137 +3,177 @@
 footer{
     background-color: var(--red);
     color: var(--lessBright-white);
-    display: grid;
-    align-items: center;
-    text-align: center;
+    
+    
     padding: 4rem 1rem 1rem 1rem;
-    gap: 2rem;
-    grid-template-areas:    'link'
+    
+    
+
+    .footer-grid{
+        display: grid;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        grid-template-areas:    'link'
                             'social'  
                             'email'
                             'copyright';
-
-    .linkList{
-        grid-area: link;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        list-style: none;
-
-        li{
-            font-size: clamp(1.25rem,3vw,1.75rem);
-        }
-    }
-
-    .socialMedia{
-        grid-area: social;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        .socialMedia-header{
-            h3{
-                font-size: clamp(1.25rem,3vw,2rem);
-                font-weight: 700;
-            }
-        }
-
-        .socialMedia-icons{
+        .linkList{
+            grid-area: link;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 0.5rem;
-            opacity: 0.6;
-
-            svg{
-                font-size: clamp(2rem,3vw,4rem);
-            }
-        }
-    }
-
-    .email-input{
-        grid-area: email;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0rem;
-        gap: 1rem;
-        height: 100%;
-
-        input{
-            background-color: transparent;
-            text-align: center;
-            border: none;
-            border-bottom: 2px solid var(--lessBright-white);
-            color: var(--lessBright-white);
-            font-size: clamp(1.25rem,3vw,1.75rem);
-
-            &::placeholder{
-                color: var(--lessBright-white);
-            }
-
-            &:focus{
-                outline: none;
-            }
-        }
-
-        a{
-            text-decoration: none;
-            font-weight: 700;
-            font-size: clamp(1.25rem,3vw,1.75rem);
-        }
-
-        h3{
-            margin-top: -0.5rem;
-            font-size: clamp(1rem,3vw,1.5rem);
-        }
-    }
-
-    .footer-wrapper{
-        grid-area: copyright;
-        .certificate{
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem 0rem;
+            list-style: none;
     
-            svg{
-                font-size: clamp(2rem,3vw,4rem);
+            li{
+                font-size: var(--h1-medium-size);
+            }
+        }
+    
+        .socialMedia{
+            grid-area: social;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+    
+            .socialMedia-header{
+                h3{
+                    font-size: var(--h1-medium-size);
+                    font-weight: 700;
+                }
+            }
+    
+            .socialMedia-icons{
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                opacity: 0.6;
+    
+                svg{
+                    font-size: var(--h1-large-size);
+                }
+            }
+        }
+    
+        .email-input{
+            grid-area: email;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0rem;
+            gap: 1rem;
+            height: 100%;
+    
+            input{
+                background-color: transparent;
+                text-align: center;
+                border: none;
+                border-bottom: 2px solid var(--lessBright-white);
+                color: var(--lessBright-white);
+                font-size: var(--h1-medium-size);
+                max-width: 18rem;
+    
+                &::placeholder{
+                    color: var(--lessBright-white);
+                }
+    
+                &:focus{
+                    outline: none;
+                }
+            }
+    
+            a{
+                text-decoration: none;
+                font-weight: 700;
+                font-size: var(--h1-medium-size);
+            }
+    
+            h3{
+                margin-top: -0.5rem;
+                font-size: var(--p-size);
+            }
+        }
+    
+        .footer-wrapper{
+            grid-area: copyright;
+            .certificate{
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem 0rem;
+        
+                svg{
+                    font-size: var(--h1-large-size);
+                }
             }
         }
     }
+
+    
 
     @include mixins.medium-up{
         &{
             padding: 4rem;
-            grid-template-areas:    'link email'
-                                    '. .'
-                                    'copyright social';
-            .linkList{
-                text-align: left;
-            }
 
-            .socialMedia{
-                align-items: flex-start;
-            }
-            
-            .email-input{
-                align-items: flex-start;
-
-                input{
-                    text-align: left;
-                }
-            }
-
-            .footer-wrapper{
-                .certificate{
-                    justify-content: flex-start;
-                }
-
-                .copyright{
-                    text-align: left;
-                }
-            }
+            .footer-grid{
+                max-width: 48rem;
+                margin: 0 auto;
                 
+                grid-template-areas:    'link email'
+                                        '. .'
+                                        'copyright social';
+
+                .linkList{
+                    text-align: left;
+                }
+
+                .socialMedia{
+                    align-items: flex-start;
+                }
+                
+                .email-input{
+                    align-items: flex-start;
+
+                    input{
+                        text-align: left;
+                    }
+
+                    h3{
+                        text-align: left;
+                    }
+                }
+
+                .footer-wrapper{
+                    .certificate{
+                        justify-content: flex-start;
+                    }
+
+                    .copyright{
+                        text-align: left;
+                    }
+                }
+            }   
+        }
+    }
+
+    @include mixins.large{
+        &{
+            .footer-grid{
+
+                .email-input{
+                    input{
+                        max-width: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    @include mixins.extra-large{
+        &{
+            .footer-grid{
+                max-width: 72rem;
+            }
         }
     }
 }

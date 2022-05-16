@@ -1,3 +1,4 @@
+import { FaStar } from 'react-icons/fa'
 import ImageBestSeller1 from '../Assets/Images/bestSeller1.jpg'
 
 const BestSellerCard = () => {
@@ -16,7 +17,7 @@ const BestSellerCard = () => {
             <h1>Crunchy Cookies</h1>
         </div>
         <div className="bestSeller-rating">
-            <h3>4.7</h3>
+            <h3><FaStar/> 4.7</h3>
         </div>
         <div className="bestSeller-price">
             <h3>$14.99</h3>
