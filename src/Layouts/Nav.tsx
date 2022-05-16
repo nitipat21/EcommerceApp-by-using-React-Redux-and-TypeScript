@@ -73,7 +73,7 @@ const Nav = () => {
   },[windowWidth]);
 
   return (
-    <nav>
+    <nav className={isMouseOverProducts || isMouseOverOurStory ? 'displaySubNav' : ''}>
       <div className="nav-wrapper">
           <div className="nav-left">
             {isHideSideMenu ?

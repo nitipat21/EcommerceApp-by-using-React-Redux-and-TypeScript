@@ -1,0 +1,29 @@
+.subNavOurStory{
+    margin: 0 auto;
+    max-width: 90rem;
+    max-height: 30rem;
+    padding: 4rem 8rem;
+
+    .subNavOurStory-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4rem;
+
+        .ourStory{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+
+            .ourStory-image{
+                img{
+                    object-fit: cover;
+                }
+            }
+
+            .ourStory-title{
+                font-size: clamp(1rem, 1.5vw, 1.5rem);
+            }
+        }
+    }
+}
