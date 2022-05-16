@@ -9,7 +9,7 @@ import Nav from '../Layouts/Nav';
 import Reviews from '../Layouts/Reviews';
 import Instagram from '../Layouts/Instagram';
 import Footer from '../Layouts/Footer';
-import Menu from '../Components/Menu';
+import Menu from '../Components/SideMenu';
 import SearchBar from '../Components/SearchBar';
 import { RootState } from '../store';
 import { useSelector } from 'react-redux';

@@ -1,3 +1,5 @@
+@use '../base/mixins' as mixins;
+
 .searchBar-container{
     display: flex;
     justify-content: center;
@@ -7,14 +9,20 @@
     background-color: var(--pink);
 
     input{
-        font-size: 1.5rem;
-        width: 80vw;
+        font-size: clamp(1.25rem, 1.5vw, 2rem);
+        width: 50vw;
         padding: 0rem 0.5rem;
     }
 
     svg{
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 1.5vw, 2rem);
         color: var(--lessBright-white);
+    }
+
+    @include mixins.large{
+        &{
+            padding: 2rem 1rem;
+        }
     }
 }
 

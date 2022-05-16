@@ -1,19 +1,75 @@
+@use '../base/mixins' as mixins;
+
 nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
     background-color: var(--pink);
     color: var(--lessBright-white);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    position: relative;
 
-    .nav-left,.nav-right{
+    .nav-wrapper{
+        margin: 0 auto;
+        max-width: 90rem;
         display: flex;
-        gap: 1rem;
-        
-        svg{
-            font-size: var(--h1-medium-size);
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        .nav-left,.nav-right{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .navLink-wrapper{
+                display: flex;
+                gap: 2.5rem;
+                padding-right: 2rem;
+            }
+            
+            svg{
+                font-size: clamp(1.25rem, 1.5vw, 2rem);
+            }
+
+            a{
+                text-decoration: none;
+                font-size: clamp(1.25rem, 1.5vw, 2rem);
+
+                &:visited{
+                    color: #fff;
+                }
+            }
         }
     }
 
+    .subMenu-wrapper{
+        position:absolute;
+        background-color: #fff;
+        color: var(--red);
+        width: 100%;
+        left: 0;
+        opacity: 1;
+
+        .subMenuProducts{
+            margin: 0 auto;
+            max-width: 90rem;
+            height: 20rem;
+            padding: 2rem 4rem;
+        }
+    }
+
+    @include mixins.small-up{
+        &{
+            .nav-wrapper{
+                padding: 1rem 2rem;
+            }
+        }
+    }
+
+    @include mixins.large{
+        &{
+            .nav-wrapper{
+                padding: 2rem 4rem;
+            }
+        }
+    }
+    
 }

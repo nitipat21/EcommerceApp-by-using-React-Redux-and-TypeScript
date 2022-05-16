@@ -7,7 +7,11 @@ const initialState:menuState = {
     isDisplayOurStory:false,
     isDisplaySearchBar:false,
     isDisplayCart:false,
-    isDisplayIngredientInfo:false
+    isDisplayIngredientInfo:false,
+    isHideSideMenu:false,
+    isMouseOverProducts:false,
+    isMouseOverOurStory:false,
+    windowWidth:window.innerWidth
 }
 
 export interface menuState {
@@ -17,6 +21,10 @@ export interface menuState {
     isDisplaySearchBar:boolean;
     isDisplayCart:boolean;
     isDisplayIngredientInfo:boolean;
+    isHideSideMenu:boolean;
+    isMouseOverProducts:boolean;
+    isMouseOverOurStory:boolean;
+    windowWidth:number;
 }
 
 const menuSlice = createSlice({
@@ -40,7 +48,20 @@ const menuSlice = createSlice({
         },
         displayIngredientInfo(state) {
             state.isDisplayIngredientInfo = !state.isDisplayIngredientInfo;
+        },
+        hideSideMenu(state,action) {
+            state.isHideSideMenu = action.payload;
+        },
+        displayNavProducts(state,action) {
+            state.isMouseOverProducts = action.payload;
+        },
+        displayNavOurStory(state,action) {
+            state.isMouseOverOurStory = action.payload;
+        },
+        setWindowWidth(state,action) {
+            state.windowWidth = action.payload;
         }
+        
     }
 });
 
