@@ -6,17 +6,21 @@
     align-items: center;
     padding: 1rem;
     gap: 0.5rem;
-    background-color: var(--pink);
+    background-color: #000;
 
     input{
         font-size: clamp(1.25rem, 1.5vw, 2rem);
         width: 50vw;
         padding: 0rem 0.5rem;
+
+        &:focus{
+            outline: #000;
+        }
     }
 
     svg{
         font-size: clamp(1.25rem, 1.5vw, 2rem);
-        color: var(--lessBright-white);
+        color: #fff;
     }
 
     @include mixins.large{

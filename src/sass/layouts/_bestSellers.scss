@@ -8,9 +8,12 @@
     padding-block: 4rem;
     
     .bestSellers-title{
+        background-color: #000;
+        color: #fff;
+        width: 100%;
         text-align: center;
         align-self: center;
-        padding: 1rem;
+        padding-block: 4rem;
 
         h1{
             font-size: var(--h1-large-size);
