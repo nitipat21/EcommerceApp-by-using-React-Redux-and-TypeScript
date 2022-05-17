@@ -1,8 +1,8 @@
 @use '../base/mixins' as mixins;
 
 footer{
-    background-color: var(--red);
-    color: var(--lessBright-white);
+    background-color: #000;
+    color: #fff;
     
     
     padding: 4rem 1rem 1rem 1rem;
@@ -68,13 +68,13 @@ footer{
                 background-color: transparent;
                 text-align: center;
                 border: none;
-                border-bottom: 2px solid var(--lessBright-white);
-                color: var(--lessBright-white);
+                border-bottom: 2px solid #fff;
+                color: #fff;
                 font-size: var(--h1-medium-size);
                 max-width: 18rem;
     
                 &::placeholder{
-                    color: var(--lessBright-white);
+                    color: #fff;
                 }
     
                 &:focus{

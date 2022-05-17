@@ -16,16 +16,15 @@
     
         button{
             width: 100%;
+            background-color: #fff;
             font-size: var(--h1-medium-size);
-            background-color: var(--lessBright-white);
-            color: var(--pink);
-            border: 2px var(--pink) solid;
+            border: 2px #000 solid;
             padding-block: 0.5rem;
             transition: 0.3s;
 
             &:hover{
-                color: var(--lessBright-white);
-                background-color: var(--pink);
+                background-color: #000;
+                color: #fff;
             }
         }
     }
@@ -40,7 +39,7 @@
     .bestSeller-tag{
         position: sticky;
         border-radius: 2rem;
-        background-color: var(--pink);
+        background-color: #000;
         color: #fff;
         padding: 1rem;
         transform: translateY(calc(50% + 0.5rem));

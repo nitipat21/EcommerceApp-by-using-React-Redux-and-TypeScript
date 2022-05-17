@@ -7,8 +7,6 @@
     text-align: center;
     padding: 0.5rem 1rem;
     font-size: var(--h1-small-size);
-    background-color: var(--red);
-    color: #fff;
 
     @include mixins.medium-up{
         &{
@@ -18,7 +16,6 @@
 }
 
 .banner1-container{
-    background-color: var(--pink);
     padding-bottom: 4rem;
 
     .banner1-wrapper{
@@ -54,13 +51,17 @@
             }
     
             button{
-                background-color: var(--red);
                 font-weight: 700;
-                border-style: none;
-                color: var(--lessBright-white);
+                border: 2px #000 solid;
+                background-color: #fff;
                 width: fit-content;
                 padding: 1rem 3rem;
                 font-size: var(--p-size);
+
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
             }
         }
     }
@@ -88,7 +89,6 @@
 }
 
 .banner2-container{
-    background-color: var(--light-green);
 
     .banner2-wrapper{
         display: flex;
@@ -118,13 +118,17 @@
             }
     
             button{
-                background-color: var(--green);
-                color: var(--lessBright-white);
                 font-weight: 700;
-                border-style: none;
+                background-color: #fff;
+                border: 2px #000 solid;
                 width: fit-content;
                 padding: 1rem 3rem;
                 font-size: var(--p-size);
+
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
             }
         }
     }

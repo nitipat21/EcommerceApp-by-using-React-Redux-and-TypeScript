@@ -4,11 +4,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--pink);
-    color: var(--lessBright-white);
+    background-color: #000;
+    color: #fff;
 
     .instagram-image-container{
-        display: flex;
+        display: flex;  
         max-width: 100vw;
         overflow-x: auto;
         scroll-snap-type: x mandatory;

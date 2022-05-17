@@ -2,7 +2,6 @@
 
 .ingredients-container{
 
-    background-color: var(--light-green);
 
     .wrapper{
         display: flex;
@@ -43,7 +42,7 @@
                     font-size: var(--p-size);
         
                     &:visited{
-                        color: #fff;
+                        color: #000;
                     }
                 }
             }
