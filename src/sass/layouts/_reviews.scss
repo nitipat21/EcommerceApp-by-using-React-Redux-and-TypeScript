@@ -6,6 +6,8 @@
     margin: 0 auto;
     align-items: center;
     max-width: 30rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
 
     .review-image{
 
@@ -51,7 +53,7 @@
 
         &{
             flex-direction: row;
-            max-width: 90rem;
+            max-width: 160rem;
         }
     }
 

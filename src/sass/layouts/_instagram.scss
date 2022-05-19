@@ -10,6 +10,7 @@
     .instagram-image-container{
         display: flex;  
         max-width: 100vw;
+        max-height: 50rem;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         &::-webkit-scrollbar {
@@ -18,6 +19,7 @@
 
         img{
             scroll-snap-align: start;
+            object-fit: cover;
         }
     }
 

@@ -10,7 +10,7 @@ const Banner1 = () => {
           <div className="banner1-info">
               <h1 className='banner1-title'>Lorem ipsum dolor sit amet.</h1>
               <p className='banner1-paragraph'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure molestias laboriosam optio at tenetur quis omnis eos perferendis enim hic.</p>
-              <button>Get the Recipe</button>
+              <button>Shop Now</button>
         </div>
       </div>
     </div>

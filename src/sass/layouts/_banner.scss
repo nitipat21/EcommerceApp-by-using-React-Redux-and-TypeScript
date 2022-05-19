@@ -21,7 +21,7 @@
     .banner1-wrapper{
         display: flex;
         flex-direction: column;
-        max-width: 90rem;
+        max-width: 160rem;
         margin: 0 auto;
     
         .banner1-image{
@@ -29,6 +29,7 @@
             img{
                 object-fit: cover;
                 aspect-ratio: 1/1;
+                max-height: 90rem;
             }
         }
     
@@ -47,6 +48,7 @@
             p{
                 font-size: var(--p-size);
                 padding-bottom: 0.5rem;
+                max-width: 75ch;
         
             }
     
@@ -93,9 +95,10 @@
     .banner2-wrapper{
         display: flex;
         flex-direction: column;
-        max-width: 90rem;
+        max-width: 160rem;
         padding-bottom: 4rem;
         margin: 0 auto;
+        gap: 1rem;
 
         .banner2-image{
         
@@ -103,6 +106,7 @@
             object-fit: cover;
             object-position: 40% 60%;
             aspect-ratio: 1/0.75;
+            max-height: 90rem;
             }
         }
 
@@ -115,6 +119,7 @@
             p{
                 font-size: var(--p-size);
                 padding-bottom: 0.5rem;
+                max-width: 75ch;
             }
     
             button{

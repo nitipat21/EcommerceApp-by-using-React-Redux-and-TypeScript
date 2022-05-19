@@ -11,13 +11,13 @@
     scroll-snap-align: start;
 
     .quickAdd-button{
-        width: 75%;
+        width: 50%;
         margin: 0 auto;
     
         button{
             width: 100%;
             background-color: #fff;
-            font-size: var(--h1-medium-size);
+            font-size: var(--p-size);
             border: 2px #000 solid;
             padding-block: 0.5rem;
             transition: 0.3s;
@@ -26,6 +26,14 @@
                 background-color: #000;
                 color: #fff;
             }
+        }
+    }
+    
+    .bestSeller-image{
+
+        img {
+            height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -68,7 +76,7 @@
     @include mixins.extra-large{
         &{
             width: 100%;
-            max-width: 30rem;
+            max-width: 33%;
         }
     }
 }

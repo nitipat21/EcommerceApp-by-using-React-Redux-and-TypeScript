@@ -7,4 +7,12 @@
     font-size: clamp(1rem, 2vw, 1.5rem);
     width: 100%;
     scroll-snap-align: center;
+
+    .reviewCard-text,.reviewCard-author{
+        h3{
+            max-width: 75ch;
+            margin: 0 auto;
+        }
+    }
+    
 }
