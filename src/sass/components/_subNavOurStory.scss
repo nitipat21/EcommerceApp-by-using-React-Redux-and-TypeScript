@@ -2,22 +2,25 @@
     margin: 0 auto;
     max-width: 90rem;
     max-height: 30rem;
-    padding: 4rem 8rem;
+    padding: 4rem;
 
     .subNavOurStory-list{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 4rem;
+        place-items: center;
+        gap: 2rem;
 
         .ourStory{
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1rem;
             text-align: center;
 
             .ourStory-image{
+                height: 20rem;
                 img{
                     object-fit: cover;
+                    aspect-ratio: 1/1;
                 }
             }
 

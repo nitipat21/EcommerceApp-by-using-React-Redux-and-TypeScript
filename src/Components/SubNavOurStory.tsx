@@ -1,4 +1,6 @@
-import ImageIngredient1 from '../Assets/Images/ingredient1.jpg'
+import ImageIngredients from '../Assets/Images/ingredients.jpg'
+import ImageAboutUs from '../Assets/Images/aboutUs.jpg'
+import ImageFAQ from '../Assets/Images/FAQ.jpg'
 
 const SubNavOurStory = () => {
   return (
@@ -6,7 +8,7 @@ const SubNavOurStory = () => {
       <div className="subNavOurStory-list">
         <div className="ourStory">
           <div className="ourStory-image">
-            <img src={ImageIngredient1}/>
+            <img src={ImageAboutUs}/>
           </div>
           <div className="ourStory-title">
             <h1>About Us</h1>
@@ -14,7 +16,7 @@ const SubNavOurStory = () => {
         </div>
         <div className="ourStory">
           <div className="ourStory-image">
-            <img src={ImageIngredient1}/>
+            <img src={ImageIngredients}/>
           </div>
           <div className="ourStory-title">
             <h1>Ingredients</h1>
@@ -22,7 +24,7 @@ const SubNavOurStory = () => {
         </div>
         <div className="ourStory">
           <div className="ourStory-image">
-            <img src={ImageIngredient1}/>
+            <img src={ImageFAQ}/>
           </div>
           <div className="ourStory-title">
             <h1>FAQ</h1>

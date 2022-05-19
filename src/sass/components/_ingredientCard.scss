@@ -13,4 +13,13 @@
             color: #fff;
         }
     }
+
+    .ingredient-image{
+
+        img{
+            object-fit: cover;
+            aspect-ratio: 1/1.25;
+            height: 100%;
+        }
+    }
 }

@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 2rem;
 
     .subNavProducts-list{
         display: flex;
@@ -31,11 +32,12 @@
 
             .product-image{
                 height: 100%;
-                max-height: 15rem;
+                height: 20rem;
 
                 img{
-                    aspect-ratio: 1/1.25;
+                    height: 100%;
                     object-fit: cover;
+                    aspect-ratio: 1/1.25;
                 }
             }
 

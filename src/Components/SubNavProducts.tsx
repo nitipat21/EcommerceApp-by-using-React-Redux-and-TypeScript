@@ -1,4 +1,6 @@
-import ImageProduct1 from '../Assets/Images/bestSeller1.jpg'
+import ImageMainProduct1 from '../Assets/Images/mainProduct1.jpg'
+import ImageMainProduct2 from '../Assets/Images/mainProduct2.jpg'
+import ImageMainProduct3 from '../Assets/Images/mainProduct3.jpg'
 
 const SubNavProducts = () => {
 
@@ -13,7 +15,15 @@ const SubNavProducts = () => {
       <div className="subNavProducts-product">
         <div className="product">
           <div className="product-image">
-            <img src={ImageProduct1}></img>
+            <img src={ImageMainProduct1}></img>
+          </div>
+          <div className="product-name">
+            <h1>Cakes</h1>
+          </div>
+        </div>
+        <div className="product">
+          <div className="product-image">
+            <img src={ImageMainProduct2}></img>
           </div>
           <div className="product-name">
             <h1>Cookies</h1>
@@ -21,18 +31,10 @@ const SubNavProducts = () => {
         </div>
         <div className="product">
           <div className="product-image">
-            <img src={ImageProduct1}></img>
+            <img src={ImageMainProduct3}></img>
           </div>
           <div className="product-name">
-            <h1>Cookies</h1>
-          </div>
-        </div>
-        <div className="product">
-          <div className="product-image">
-            <img src={ImageProduct1}></img>
-          </div>
-          <div className="product-name">
-            <h1>Cookies</h1>
+            <h1>Pies</h1>
           </div>
         </div>
       </div>

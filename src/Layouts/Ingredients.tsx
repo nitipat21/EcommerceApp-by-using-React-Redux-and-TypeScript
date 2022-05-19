@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import IngredientCard from '../Components/IngredientCard'
+import IngredientContainer from '../Components/IngredientContainer'
 import IngredientInfo from '../Components/IngredientInfo';
 import { RootState } from '../store'
 
@@ -11,14 +11,7 @@ const Ingredients = () => {
     <div className="ingredients-container">
         <div className="wrapper">
             {isDisplayIngredientInfo ? <IngredientInfo/> : ''}
-            <div className="ingredientCard-container">
-                <IngredientCard/>
-                <IngredientCard/>
-                <IngredientCard/>
-                <IngredientCard/>
-                <IngredientCard/>
-                <IngredientCard/>
-            </div>
+            <IngredientContainer/>
             <div className="ingredients-wrapper">
                 <div className="ingredients-header">
                     <h1>Because ingredients matter.</h1>
