@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import ImageBanner2 from '../Assets/Images/banner2.jpg'
 
-const Banner2 = () => {
+const Banner2:FC = () => {
   return (
     <div className="banner2-container">
       <div className="banner2-wrapper">

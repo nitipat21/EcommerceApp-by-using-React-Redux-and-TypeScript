@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const SubMenuProducts = () => {
+const SubMenuProducts:FC = () => {
   return (
     <div className='subMenuProducts'>
         <h5>Best Sellers</h5>

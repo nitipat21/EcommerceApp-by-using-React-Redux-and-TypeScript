@@ -1,8 +1,9 @@
+import { FC } from 'react'
 import ImageInstagram1 from '../Assets/Images/instagram1.jpg'
 import ImageInstagram2 from '../Assets/Images/instagram2.jpg'
 import ImageInstagram3 from '../Assets/Images/instagram3.jpg'
 
-const Instagram = () => {
+const Instagram:FC = () => {
   return (
     <div className="instagram-container">
         <div className="instagram-link">

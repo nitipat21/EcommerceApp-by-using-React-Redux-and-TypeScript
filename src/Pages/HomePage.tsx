@@ -12,20 +12,40 @@ import Footer from '../Layouts/Footer';
 import Menu from '../Components/SideMenu';
 import SearchBar from '../Components/SearchBar';
 import { RootState } from '../store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cart from '../Components/Cart';
 import PageOverlay from '../Layouts/PageOverlay';
-import { useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../firebase-config';
+import { productsSliceActions } from '../store/productsSlice';
 
-const HomePage = () => {
+const HomePage:FC = () => {
   
-  const isDisplaySearchBar = useSelector((state:RootState)=> state.shop.isDisplaySearchBar);
-  const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
-  const isDisplayMenu = useSelector((state:RootState)=> state.shop.isDisplayMenu);
+  const dispatch = useDispatch();
+
+  const productsCollectionRef = collection(db, "products");
+
+  const isDisplaySearchBar = useSelector((state:RootState)=> state.menu.isDisplaySearchBar);
+  const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
+  const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
 
   useEffect(()=>{
     isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
   },[isDisplayCart,isDisplayMenu]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+        const newArray:any[] = [];
+        const data = await getDocs(productsCollectionRef);
+
+        data.docs.map((doc:any) => newArray.push(doc.data()))
+
+        dispatch(productsSliceActions.setProducts(newArray));
+    };
+
+    getProducts();
+  }, []);
 
   return (
     <div className="homePage">

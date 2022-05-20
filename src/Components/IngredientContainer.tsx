@@ -7,8 +7,9 @@ import ImageIngredient3 from '../Assets/Images/ingredient3.jpg'
 import ImageIngredient4 from '../Assets/Images/ingredient4.jpg'
 import ImageIngredient5 from '../Assets/Images/ingredient5.jpg'
 import ImageIngredient6 from '../Assets/Images/ingredient6.jpg'
+import { FC } from 'react'
 
-const IngredientCard = () => {
+const IngredientCard:FC = () => {
 
   const dispatch = useDispatch();
 

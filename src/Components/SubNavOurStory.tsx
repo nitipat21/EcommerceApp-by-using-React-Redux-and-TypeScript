@@ -1,8 +1,9 @@
 import ImageIngredients from '../Assets/Images/ingredients.jpg'
 import ImageAboutUs from '../Assets/Images/aboutUs.jpg'
 import ImageFAQ from '../Assets/Images/FAQ.jpg'
+import { FC } from 'react'
 
-const SubNavOurStory = () => {
+const SubNavOurStory:FC = () => {
   return (
     <div className='subNavOurStory'>
       <div className="subNavOurStory-list">

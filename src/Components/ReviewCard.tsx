@@ -1,6 +1,7 @@
+import { FC } from "react"
 
 
-const ReviewCard = () => {
+const ReviewCard:FC = () => {
   return (
     <div className="reviewCard">
       <div className="reviewCard-text">

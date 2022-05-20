@@ -1,11 +1,12 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux'
 import IngredientContainer from '../Components/IngredientContainer'
 import IngredientInfo from '../Components/IngredientInfo';
 import { RootState } from '../store'
 
-const Ingredients = () => {
+const Ingredients:FC = () => {
 
-    const isDisplayIngredientInfo = useSelector((state:RootState)=> state.shop.isDisplayIngredientInfo);
+    const isDisplayIngredientInfo = useSelector((state:RootState)=> state.menu.isDisplayIngredientInfo);
 
   return (
     <div className="ingredients-container">

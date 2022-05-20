@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import { FaRegPlusSquare, FaRegMinusSquare, FaTrashAlt } from 'react-icons/fa'
 import ImageProduct1 from '../Assets/Images/product1.jpg'
 
-const ItemCartCard = () => {
+const ItemCartCard:FC = () => {
   return (
     <div className="itemCartCard">
         <div className="itemCart-image">

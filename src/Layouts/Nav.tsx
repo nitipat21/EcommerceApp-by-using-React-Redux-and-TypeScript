@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { menuSliceActions } from "../store/menuSlice";
 import { FaBars,FaSearch, FaUser,FaShoppingCart } from "react-icons/fa";
 import { RootState } from "../store";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import SubNavProducts from "../Components/SubNavProducts";
 import SubNavOurStory from "../Components/SubNavOurStory";
 
  
 
-const Nav = () => {
+const Nav:FC = () => {
 
   const dispatch = useDispatch();
 
@@ -50,13 +50,13 @@ const Nav = () => {
     dispatch(menuSliceActions.setWindowWidth(window.innerWidth));
   };
 
-  const isMouseOverProducts = useSelector((state:RootState) => state.shop.isMouseOverProducts);
+  const isMouseOverProducts = useSelector((state:RootState) => state.menu.isMouseOverProducts);
 
-  const isMouseOverOurStory = useSelector((state:RootState) => state.shop.isMouseOverOurStory);
+  const isMouseOverOurStory = useSelector((state:RootState) => state.menu.isMouseOverOurStory);
  
-  const isHideSideMenu = useSelector((state:RootState) => state.shop.isHideSideMenu);
+  const isHideSideMenu = useSelector((state:RootState) => state.menu.isHideSideMenu);
 
-  const windowWidth = useSelector((state:RootState) => state.shop.windowWidth);
+  const windowWidth = useSelector((state:RootState) => state.menu.windowWidth);
 
   useEffect(()=>{
     window.addEventListener('resize',setWindowWidth)

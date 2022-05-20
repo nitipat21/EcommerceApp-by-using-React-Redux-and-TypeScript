@@ -1,8 +1,9 @@
+import { FC } from 'react'
 import { FaQuoteLeft } from 'react-icons/fa'
 import ImageReview1 from '../Assets/Images/review1.jpg'
 import ReviewCard from '../Components/ReviewCard'
 
-const Reviews = () => {
+const Reviews:FC = () => {
   return (
     <div className="review-container">
         <div className="review-image">

@@ -1,8 +1,9 @@
+import { FC } from 'react'
 import ImageMainProduct1 from '../Assets/Images/mainProduct1.jpg'
 import ImageMainProduct2 from '../Assets/Images/mainProduct2.jpg'
 import ImageMainProduct3 from '../Assets/Images/mainProduct3.jpg'
 
-const MainProducts = () => {
+const MainProducts:FC = () => {
   return (
     <div className="mainProducts-container">
         <div className="mainProductCard">

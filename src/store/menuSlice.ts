@@ -1,5 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface menuState {
+    isDisplayMenu:boolean;
+    isDisplayProducts:boolean;
+    isDisplayOurStory:boolean;
+    isDisplaySearchBar:boolean;
+    isDisplayCart:boolean;
+    isDisplayIngredientInfo:boolean;
+    isHideSideMenu:boolean;
+    isMouseOverProducts:boolean;
+    isMouseOverOurStory:boolean;
+    windowWidth:number;
+}
 
 const initialState:menuState = {
     isDisplayMenu:false,
@@ -12,19 +24,6 @@ const initialState:menuState = {
     isMouseOverProducts:false,
     isMouseOverOurStory:false,
     windowWidth:window.innerWidth
-}
-
-export interface menuState {
-    isDisplayMenu:boolean;
-    isDisplayProducts:boolean;
-    isDisplayOurStory:boolean;
-    isDisplaySearchBar:boolean;
-    isDisplayCart:boolean;
-    isDisplayIngredientInfo:boolean;
-    isHideSideMenu:boolean;
-    isMouseOverProducts:boolean;
-    isMouseOverOurStory:boolean;
-    windowWidth:number;
 }
 
 const menuSlice = createSlice({

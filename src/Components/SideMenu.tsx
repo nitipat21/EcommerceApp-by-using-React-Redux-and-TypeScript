@@ -4,16 +4,17 @@ import { FaCaretDown, FaCaretUp, FaFacebookSquare, FaTimes, FaInstagramSquare, F
 import SubMenuProducts from './SubMenuProducts';
 import SubMenuOurStory from './SubMenuOurStory';
 import { menuSliceActions } from '../store/menuSlice';
+import { FC } from 'react';
 
 
 
-const Menu = () => {
+const Menu:FC = () => {
 
   const dispatch = useDispatch();
   
-  const isDisplayMenu = useSelector((state:RootState) => state.shop.isDisplayMenu);
-  const isDisplayProducts = useSelector((state:RootState) => state.shop.isDisplayProducts);
-  const isDisplayOurStory = useSelector((state:RootState) => state.shop.isDisplayOurStory);
+  const isDisplayMenu = useSelector((state:RootState) => state.menu.isDisplayMenu);
+  const isDisplayProducts = useSelector((state:RootState) => state.menu.isDisplayProducts);
+  const isDisplayOurStory = useSelector((state:RootState) => state.menu.isDisplayOurStory);
 
   const displayProducts = () => {
     dispatch(menuSliceActions.displayProducts())

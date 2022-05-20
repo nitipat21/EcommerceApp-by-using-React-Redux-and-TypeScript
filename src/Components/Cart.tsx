@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { FaTimes } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../store";
@@ -5,7 +6,7 @@ import { menuSliceActions } from "../store/menuSlice";
 import ItemCartCard from "./ItemCartCard";
 
 
-const Cart = () => {
+const Cart:FC = () => {
 
   const dispatch = useDispatch();
 
@@ -13,7 +14,7 @@ const Cart = () => {
     dispatch(menuSliceActions.displayCart());
   }
 
-  const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
+  const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
 
   return (
     <div className={isDisplayCart ? 'cart displayCart' : 'cart'}>

@@ -1,9 +1,10 @@
+import { FC } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { menuSliceActions } from "../store/menuSlice";
 
 
-const SearchBar = () => {
+const SearchBar:FC = () => {
 
   const dispatch = useDispatch();
 

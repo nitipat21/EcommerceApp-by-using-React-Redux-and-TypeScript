@@ -1,14 +1,15 @@
+import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { menuSliceActions } from "../store/menuSlice";
 
 
-const PageOverlay = () => {
+const PageOverlay:FC = () => {
 
   const dispatch = useDispatch();
 
-  const isDisplayCart = useSelector((state:RootState)=> state.shop.isDisplayCart);
-  const isDisplayMenu = useSelector((state:RootState)=> state.shop.isDisplayMenu);
+  const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
+  const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
 
   const close = () => {
     if (isDisplayCart) {

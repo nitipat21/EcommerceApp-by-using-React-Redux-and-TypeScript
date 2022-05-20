@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-const SubMenuOurStory = () => {
+const SubMenuOurStory:FC = () => {
   return (
     <div className='subMenuOurStory'>
         <h5>About Us</h5>

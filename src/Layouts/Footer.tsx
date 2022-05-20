@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { FaAward, FaCertificate, FaPagelines, FaUtensils,FaFacebookSquare,FaInstagramSquare,FaTwitterSquare,FaPinterestSquare } from 'react-icons/fa'
 
-const Footer = () => {
+const Footer:FC = () => {
 
     const [email,setEmail] = useState('');
     const [submit,setSubmit] = useState(false);

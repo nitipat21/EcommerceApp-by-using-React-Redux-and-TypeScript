@@ -1,6 +1,7 @@
+import { FC } from "react"
 import { FaLocationArrow } from "react-icons/fa"
 
-const SearchLocation = () => {
+const SearchLocation:FC = () => {
   return (
     <div className="findLocation-container">
         <div className="findLocation-title">
