@@ -26,7 +26,6 @@ const HomePage:FC = () => {
 
   const productsCollectionRef = collection(db, "products");
 
-  const isDisplaySearchBar = useSelector((state:RootState)=> state.menu.isDisplaySearchBar);
   const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
   const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
 
@@ -49,10 +48,7 @@ const HomePage:FC = () => {
   }, []);
 
   return (
-    <div className="homePage">
-        <PageOverlay/>
-        <Banner0/>
-        {isDisplaySearchBar ? <SearchBar/> : <Nav/> }
+    <div className="homePage">       
         <Menu/>
         <Cart/>
         <main className='main-homePage'>
@@ -65,7 +61,6 @@ const HomePage:FC = () => {
             <Reviews/>
             <Instagram/>
         </main>
-        <Footer/>
     </div>
   )
 }

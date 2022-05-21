@@ -27,14 +27,17 @@ const Cart:FC = () => {
             />
   });
 
-  const [subtotal,setSubTotal] = useState<number>(0);
+  const [subTotal,setSubTotal] = useState<number>(0);
+  const [totalAmount,setTotalAmount] = useState<number>(0);
 
   useEffect(()=>{
     if (cartArray.length < 1){
       displayCart();
       setSubTotal(0.00);
+      setTotalAmount(0)
     } else {
-      setSubTotal(cartArray.reduce((total,currentProduct) => total + (currentProduct.price*currentProduct.amount), 0));
+      setSubTotal(cartArray.reduce((subTotal,currentProduct) => subTotal + (currentProduct.price*currentProduct.amount), 0));
+      setTotalAmount(cartArray.reduce((totalAmount,currentProduct) => totalAmount + currentProduct.amount, 0));
     }
 
   },[cartArray])
@@ -42,13 +45,13 @@ const Cart:FC = () => {
   return (
     <div className={isDisplayCart ? 'cart displayCart' : 'cart'}>
       <div className="cart-title">
-        <h3>Your Cart <span>(0.00)</span></h3>
+        <h3>Your Cart <span>({totalAmount})</span></h3>
         <FaTimes onClick={displayCart}/>
       </div>
       <div className="freeShipping">
-        <h5>You're only $<span>15</span> away from free shipping!</h5>
+        <h5>{subTotal > 99.99 ? 'Congrats! You get free shipping!' : `You're only $${(99.99 - subTotal).toFixed(2)} away from free shipping!`}</h5>
         <div className="freeShippingBar">
-          <meter></meter>
+          <meter min={0} max={99.99} low={33.33} high={66.66} optimum={99.99} value={subTotal}></meter>
         </div>
       </div>
       <div className="itemCartCard-Container">
@@ -63,7 +66,7 @@ const Cart:FC = () => {
           <h3>Subtotal</h3>
         </div>
         <div className="subtotal-amount">
-          <h3>${subtotal.toFixed(2)}</h3>
+          <h3>${subTotal.toFixed(2)}</h3>
         </div>
       </div>
       <div className="checkout">

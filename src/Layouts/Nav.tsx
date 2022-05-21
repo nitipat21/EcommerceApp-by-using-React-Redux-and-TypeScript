@@ -5,6 +5,7 @@ import { RootState } from "../store";
 import { FC, useEffect } from "react";
 import SubNavProducts from "../Components/SubNavProducts";
 import SubNavOurStory from "../Components/SubNavOurStory";
+import { Link } from "react-router-dom";
 
  
 
@@ -99,7 +100,7 @@ const Nav:FC = () => {
               </div>
             }
             {isHideSideMenu && <FaSearch onClick={displaySearchBar}/>}
-            <FaUser/>
+            <Link to={'/login'}><FaUser/></Link>
             <FaShoppingCart onClick={displayCart}/>
         </div>
       </div>

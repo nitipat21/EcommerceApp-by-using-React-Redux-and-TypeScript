@@ -1,3 +1,5 @@
+@use '../base/mixins' as mixins;
+
 .cart{
     display: flex;
     flex-direction: column;
@@ -6,12 +8,20 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 20rem;
+    min-width: 20rem;
+    width: 100%;
+    max-width: 30rem;
+    height: 100%;
     max-height: 100vh;
     padding: 0.5rem 1rem;
     transform: translateX(100%);
     transition: all 0.5s;
     z-index: 2;
+    font-size: var(--h1-medium-size);
+
+    button,input{
+        font-size: var(--p-size);
+    }
 
     .cart-title{
         display: flex;
@@ -27,6 +37,7 @@
 
     .itemCartCard-Container{
         overflow-y: auto;
+        height: 100%;
     };
 
     .applyCoupon{
@@ -55,6 +66,12 @@
             width: 100%;
         };
     };
+
+    @include mixins.extra-large{
+        &{
+            max-width: 40rem;
+        }
+    }
 };
 
 

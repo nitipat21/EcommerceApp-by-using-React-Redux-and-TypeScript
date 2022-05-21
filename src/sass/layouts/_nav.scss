@@ -25,6 +25,10 @@ nav{
             align-items: center;
             gap: 1rem;
 
+            a:visited{
+                color: #fff;
+            }
+
             .navLink-wrapper{
                 display: flex;
                 gap: 2.5rem;
