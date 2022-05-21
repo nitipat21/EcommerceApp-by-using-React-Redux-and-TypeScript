@@ -1,9 +1,12 @@
 import { FC } from 'react'
+import Auth from '../Layouts/Auth'
 
 const LoginPage:FC = () => {
   return (
     <div className="loginPage">
-        <h1>Hello world</h1>
+        <main className="main-loginPage">
+          <Auth/>
+        </main>
     </div>
   )
 }

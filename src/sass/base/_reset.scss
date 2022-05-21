@@ -18,6 +18,10 @@ svg{
 button{
     cursor: pointer;
     background-color: #fff;
+
+    &:hover{
+        transition: all 0.3s;
+    }
 }
 
 a{
