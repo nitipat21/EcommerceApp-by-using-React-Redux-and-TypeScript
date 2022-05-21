@@ -11,14 +11,14 @@ import Instagram from '../Layouts/Instagram';
 import Footer from '../Layouts/Footer';
 import Menu from '../Components/SideMenu';
 import SearchBar from '../Components/SearchBar';
-import { RootState } from '../store';
-import { useDispatch, useSelector } from 'react-redux';
 import Cart from '../Components/Cart';
 import PageOverlay from '../Layouts/PageOverlay';
-import { FC, useEffect, useState } from 'react';
+import { RootState } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { FC, useEffect } from 'react';
 import { collection, getDocs } from '@firebase/firestore';
 import { db } from '../firebase-config';
-import { productsSliceActions } from '../store/productsSlice';
+import { shopSliceActions } from '../store/productsSlice';
 
 const HomePage:FC = () => {
   
@@ -39,12 +39,13 @@ const HomePage:FC = () => {
         const newArray:any[] = [];
         const data = await getDocs(productsCollectionRef);
 
-        data.docs.map((doc:any) => newArray.push(doc.data()))
+        data.docs.map((doc:any) => newArray.push({...doc.data(), id: doc.id}));
 
-        dispatch(productsSliceActions.setProducts(newArray));
+        dispatch(shopSliceActions.setProducts(newArray));
     };
 
     getProducts();
+
   }, []);
 
   return (

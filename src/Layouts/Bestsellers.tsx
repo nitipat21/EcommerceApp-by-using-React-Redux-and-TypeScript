@@ -1,12 +1,12 @@
 import BestSellerCard from '../Components/BestSellerCard'
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
 
-const Bestsellers = () => {
+const BestSellers:FC = () => {
 
-  const productsArray = useSelector((state:RootState) => state.products.productsArray);
+  const productsArray = useSelector((state:RootState) => state.shop.productsArray);
 
   const [bestSellersArray, setBestSellersArray] = useState<any[]>([]);
   
@@ -39,4 +39,4 @@ const Bestsellers = () => {
   )
 }
 
-export default Bestsellers
+export default BestSellers;
