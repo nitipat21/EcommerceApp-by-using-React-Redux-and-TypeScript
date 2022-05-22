@@ -100,7 +100,7 @@ const Nav:FC = () => {
               </div>
             }
             {isHideSideMenu && <FaSearch onClick={displaySearchBar}/>}
-            <Link to={'/login'}><FaUser/></Link>
+            <Link to={'/account/login'}><FaUser/></Link>
             <FaShoppingCart onClick={displayCart}/>
         </div>
       </div>

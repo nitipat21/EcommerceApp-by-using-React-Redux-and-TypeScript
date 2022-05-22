@@ -49,8 +49,6 @@ const HomePage:FC = () => {
 
   return (
     <div className="homePage">       
-        <Menu/>
-        <Cart/>
         <main className='main-homePage'>
             <Banner1/>
             <Banner2/>

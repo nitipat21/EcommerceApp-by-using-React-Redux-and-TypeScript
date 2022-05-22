@@ -1,0 +1,44 @@
+.register{
+    padding-block: 4rem;
+    min-height: 80vh;
+
+    .register-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .register-title{
+            h1{
+                font-size: var(--h1-large-size);
+            }
+        }
+
+        .register-form-container{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 20rem;
+            max-width: 40rem;
+            padding: 2rem;
+            gap: 1rem;
+
+            input{
+                padding: 1rem;
+                font-size: var(--h1-medium-size);
+            }
+
+            button{
+                align-self: center;
+                font-size: var(--h1-medium-size);
+                padding: 0.5rem 2.5rem;
+                margin-top: 2rem;
+
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
