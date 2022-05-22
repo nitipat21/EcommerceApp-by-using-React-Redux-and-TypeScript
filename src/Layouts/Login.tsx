@@ -1,5 +1,5 @@
 import { FC, useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
@@ -9,7 +9,10 @@ import { authSliceActions } from "../store/authSlice";
 const Login:FC = () => {
 
   const auth = getAuth();
+
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const isActionSuccess = useSelector((state:RootState) => state.auth.isActionSuccess);
   const isActionFailure = useSelector((state:RootState) => state.auth.isActionFailure);
@@ -34,6 +37,7 @@ const Login:FC = () => {
       toggleActionSuccess();
       setEmail('');
       setPassword('');
+      navigate('/account');
 
     } catch (err:any) {
       setErrorMessage(err.toString());

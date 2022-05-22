@@ -3,21 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface iAuth {
     isActionSuccess:boolean;
     isActionFailure:boolean;
-    userData:any[];
+    isLogin:boolean;
+    isAccountHasAddress:boolean;
+    isAccountHasOrderHistory:boolean;
+    accountData:any[];
 }
 
 const initialState:iAuth = {
     isActionSuccess:false,
     isActionFailure:false,
-    userData:[]
+    isLogin:false,
+    isAccountHasAddress:false,
+    isAccountHasOrderHistory:false,
+    accountData:[]
 }
 
 const authSlice =createSlice({
     name:'auth',
     initialState,
     reducers:{
-        setUserData(state,actions){
-            state.userData = actions.payload;
+        setAccountData(state,actions){
+            state.accountData = actions.payload;
         },
         toggleActionSuccess(state) {
             state.isActionSuccess = !state.isActionSuccess;

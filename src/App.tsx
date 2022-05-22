@@ -4,6 +4,7 @@ import './App.scss';
 import Cart from './Components/Cart';
 import SearchBar from './Components/SearchBar';
 import Menu from './Components/SideMenu';
+import Account from './Layouts/Account';
 import Banner0 from './Layouts/Banner0';
 import Footer from './Layouts/Footer';
 import Nav from './Layouts/Nav';
@@ -27,6 +28,7 @@ function App() {
     {isDisplaySearchBar ? <SearchBar/> : <Nav/>}
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>
+      <Route path='/account' element={<Account/>}></Route>
       <Route path='/account/login' element={<LoginPage/>}></Route>
       <Route path='/account/register' element={<RegisterPage/>}></Route>
       <Route path='/account/recover' element={<RecoverPage/>}></Route>

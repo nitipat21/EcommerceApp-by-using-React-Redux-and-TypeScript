@@ -1,0 +1,24 @@
+.account{
+    padding-block: 4rem;
+    min-height: 80vh;
+
+    .account-wrapper{
+
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 4rem;
+
+        .account-detail-container{
+
+
+
+            .account-detail-header{
+                display: flex;
+                align-items: flex-end;
+                gap: 0.5rem;
+            }
+        }
+
+
+    }
+}
