@@ -1,19 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface iAuth {
-    createAccount:boolean
+    isActionSuccess:boolean;
+    isActionFailure:boolean;
+    userData:any[];
 }
 
 const initialState:iAuth = {
-    createAccount:false
+    isActionSuccess:false,
+    isActionFailure:false,
+    userData:[]
 }
 
 const authSlice =createSlice({
     name:'auth',
     initialState,
     reducers:{
-        directToCreateAccount(state) {
-            state.createAccount = true
+        setUserData(state,actions){
+            state.userData = actions.payload;
+        },
+        toggleActionSuccess(state) {
+            state.isActionSuccess = !state.isActionSuccess;
+        },
+        toggleActionFailure(state) {
+            state.isActionFailure = !state.isActionFailure;
         },
     }
 });
