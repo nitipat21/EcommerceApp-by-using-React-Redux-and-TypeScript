@@ -27,12 +27,12 @@ const Register:FC = () => {
 
     const toggleActionSuccess = () => {
       dispatch(authSliceActions.toggleActionSuccess());
-      setTimeout(()=>dispatch(authSliceActions.toggleActionSuccess()),2000);
+      setTimeout(()=>dispatch(authSliceActions.toggleActionSuccess()),1000);
     };
   
     const toggleActionFailure = () => {
       dispatch(authSliceActions.toggleActionFailure());
-      setTimeout(()=>dispatch(authSliceActions.toggleActionFailure()),2000);
+      setTimeout(()=>dispatch(authSliceActions.toggleActionFailure()),1000);
     };
 
     const registerWithEmailAndPassword = async (firstName:string, lastName:string, email:string, password:string) => {
@@ -48,7 +48,7 @@ const Register:FC = () => {
           });
 
           toggleActionSuccess();
-          setTimeout(()=> navigate('/account/login'),2000);
+          setTimeout(()=> navigate('/account/login'),1000);
 
         } catch (err:any) {
           setErrorMessage(err.toString());

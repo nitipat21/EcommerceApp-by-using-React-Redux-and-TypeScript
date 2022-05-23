@@ -6,6 +6,7 @@ export interface iAuth {
     isLogin:boolean;
     isAccountHasAddress:boolean;
     isAccountHasOrderHistory:boolean;
+    isDisplayAddressForm:boolean;
     accountData:any[];
 }
 
@@ -15,6 +16,7 @@ const initialState:iAuth = {
     isLogin:false,
     isAccountHasAddress:false,
     isAccountHasOrderHistory:false,
+    isDisplayAddressForm:false,
     accountData:[]
 }
 
@@ -31,6 +33,9 @@ const authSlice =createSlice({
         toggleActionFailure(state) {
             state.isActionFailure = !state.isActionFailure;
         },
+        toggleAddressForm(state) {
+            state.isDisplayAddressForm = !state.isDisplayAddressForm;
+        }
     }
 });
 

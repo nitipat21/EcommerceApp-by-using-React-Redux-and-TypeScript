@@ -1,0 +1,35 @@
+.address{
+    .address-wrapper{
+        display: grid;
+        gap: 2rem;
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        place-items: center;
+
+        .address-title{
+            h1{
+                font-size: var(--h1-large-size);
+            }
+        }
+
+        .return-link{
+            a{
+                font-size: var(--h1-small-size);
+            }
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            font-size: var(--p-size);
+        }
+
+        .addressCard-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-block: 4rem;
+        }
+    }
+}

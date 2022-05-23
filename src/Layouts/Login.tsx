@@ -23,12 +23,12 @@ const Login:FC = () => {
 
   const toggleActionSuccess = () => {
     dispatch(authSliceActions.toggleActionSuccess());
-    setTimeout(()=>dispatch(authSliceActions.toggleActionSuccess()),2000);
+    setTimeout(()=>dispatch(authSliceActions.toggleActionSuccess()),1000);
   };
 
   const toggleActionFailure = () => {
     dispatch(authSliceActions.toggleActionFailure());
-    setTimeout(()=>dispatch(authSliceActions.toggleActionFailure()),2000);
+    setTimeout(()=>dispatch(authSliceActions.toggleActionFailure()),1000);
   };
 
   const logInWithEmailAndPassword = async (email:string, password:string) => {
@@ -37,13 +37,14 @@ const Login:FC = () => {
       toggleActionSuccess();
       setEmail('');
       setPassword('');
-      navigate('/account');
+      setTimeout(()=>navigate('/account'),1000);
 
     } catch (err:any) {
       setErrorMessage(err.toString());
       toggleActionFailure();
       console.error(err);
     }
+
   };
 
   const signIn = () => {

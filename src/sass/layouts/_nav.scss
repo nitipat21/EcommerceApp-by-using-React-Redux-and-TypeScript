@@ -19,6 +19,13 @@ nav{
         align-items: center;
         padding: 1rem;
 
+        .nav-center{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+
         .nav-left,.nav-right{
             display: flex;
             justify-content: center;

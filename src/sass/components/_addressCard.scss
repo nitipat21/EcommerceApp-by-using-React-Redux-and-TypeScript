@@ -1,0 +1,12 @@
+.addressCard{
+    text-align: center;
+
+    .addressCard-info-container{
+        padding-block: 2rem;
+    }
+
+    .addressCard-button-container{
+        display: flex;
+        gap: 1rem;
+    }
+}

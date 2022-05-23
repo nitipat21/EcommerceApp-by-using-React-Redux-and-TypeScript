@@ -9,6 +9,7 @@ import Banner0 from './Layouts/Banner0';
 import Footer from './Layouts/Footer';
 import Nav from './Layouts/Nav';
 import PageOverlay from './Layouts/PageOverlay';
+import AddressPage from './Pages/AddressPage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RecoverPage from './Pages/RecoverPage';
@@ -32,6 +33,7 @@ function App() {
       <Route path='/account/login' element={<LoginPage/>}></Route>
       <Route path='/account/register' element={<RegisterPage/>}></Route>
       <Route path='/account/recover' element={<RecoverPage/>}></Route>
+      <Route path='/account/address' element={<AddressPage/>}></Route>
     </Routes>
     <Footer/>
     </>
