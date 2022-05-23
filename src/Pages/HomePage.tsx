@@ -1,18 +1,11 @@
-import Banner0 from '../Layouts/Banner0';
 import Banner1 from '../Layouts/Banner1';
 import Banner2 from '../Layouts/Banner2';
 import Bestsellers from '../Layouts/Bestsellers';
 import SearchLocation from '../Layouts/SearchLocation';
 import Ingredients from '../Layouts/Ingredients';
 import MainProducts from '../Layouts/MainProducts';
-import Nav from '../Layouts/Nav';
 import Reviews from '../Layouts/Reviews';
 import Instagram from '../Layouts/Instagram';
-import Footer from '../Layouts/Footer';
-import Menu from '../Components/SideMenu';
-import SearchBar from '../Components/SearchBar';
-import Cart from '../Components/Cart';
-import PageOverlay from '../Layouts/PageOverlay';
 import { RootState } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { FC, useEffect } from 'react';
@@ -35,10 +28,9 @@ const HomePage:FC = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-        const newArray:any[] = [];
         const data = await getDocs(productsCollectionRef);
-
-        data.docs.map((doc:any) => newArray.push({...doc.data(), id: doc.id}));
+        const newArray:any[] = data.docs.map((doc:any) => doc.data());
+        console.log(newArray)
 
         dispatch(shopSliceActions.setProducts(newArray));
     };

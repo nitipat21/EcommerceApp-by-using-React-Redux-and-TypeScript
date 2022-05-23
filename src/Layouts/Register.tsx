@@ -45,6 +45,9 @@ const Register:FC = () => {
             lastName,
             authProvider: "local",
             email,
+            address:[],
+            cart:[],
+            orderHistory:[]
           });
 
           toggleActionSuccess();

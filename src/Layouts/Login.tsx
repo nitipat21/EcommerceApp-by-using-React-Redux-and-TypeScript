@@ -37,6 +37,7 @@ const Login:FC = () => {
       toggleActionSuccess();
       setEmail('');
       setPassword('');
+      dispatch(authSliceActions.Login());
       setTimeout(()=>navigate('/account'),1000);
 
     } catch (err:any) {
@@ -52,7 +53,7 @@ const Login:FC = () => {
   };
 
   const demoSignIn = () => {
-    logInWithEmailAndPassword('nitipat.yt@gmail.com','123456789');
+    logInWithEmailAndPassword('nitipat.yt@gmail.com','123456');
   };
 
   return (

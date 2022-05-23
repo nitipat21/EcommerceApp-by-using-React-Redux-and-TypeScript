@@ -35,6 +35,12 @@ const authSlice =createSlice({
         },
         toggleAddressForm(state) {
             state.isDisplayAddressForm = !state.isDisplayAddressForm;
+        },
+        Login(state) {
+            state.isLogin = true;
+        },
+        Logout(state) {
+            state.isLogin = false;
         }
     }
 });

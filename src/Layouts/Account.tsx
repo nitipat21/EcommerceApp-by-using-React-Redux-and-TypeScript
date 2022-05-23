@@ -1,9 +1,13 @@
 import { signOut, getAuth } from "firebase/auth";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../Components/Alert";
 import { RootState } from "../store";
 import { authSliceActions } from "../store/authSlice";
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from "../firebase-config";
+
 
 const Account = () => {
 
@@ -13,7 +17,10 @@ const Account = () => {
 
   const dispatch = useDispatch();
 
+  const usersCollectionRef = collection(db, "users");
+
   const isActionSuccess = useSelector((state:RootState) => state.auth.isActionSuccess);
+  const isLogin = useSelector((state:RootState)=> state.auth.isLogin);
 
   const toggleActionSuccess = () => {
     dispatch(authSliceActions.toggleActionSuccess());
@@ -23,8 +30,25 @@ const Account = () => {
   const logout = () => {
     signOut(auth);
     toggleActionSuccess();
+    dispatch(authSliceActions.Logout());
     setTimeout(()=>navigate('/account/login'),1000);
   };
+
+  useEffect(()=>{
+    if (!isLogin) {
+      navigate('/account/login');
+    }
+
+    console.log(auth.currentUser?.uid)
+
+    const getProducts = async () => {
+      const data = await getDocs(usersCollectionRef);
+      const currentUser = data.docs.map(user => user.data().uid === auth.currentUser?.uid ? user.data() : '');
+      console.log(currentUser)
+    }
+
+    getProducts();
+  },[])
 
   return (
     <div className="account">

@@ -9,6 +9,7 @@ const AddressForm = () => {
     const [postal,setPostal] = useState<string>('');
     const [phone,setPhone] = useState<string>('');
     const [isCheck,setIsCheck] = useState<boolean>(false);
+    
 
     return (
         <div className="addressForm">
