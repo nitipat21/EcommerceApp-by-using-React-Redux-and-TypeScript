@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
 import './App.scss';
 import Cart from './Components/Cart';
@@ -15,10 +16,17 @@ import LoginPage from './Pages/LoginPage';
 import RecoverPage from './Pages/RecoverPage';
 import RegisterPage from './Pages/RegisterPage';
 import { RootState } from './store';
+import { authSliceActions } from './store/authSlice';
 
 function App() {
 
+  const dispatch = useDispatch();
+
   const isDisplaySearchBar = useSelector((state:RootState)=> state.menu.isDisplaySearchBar);
+
+  useEffect(()=>{
+    dispatch(authSliceActions.setAccountData());
+  },[])
 
   return (
     <>

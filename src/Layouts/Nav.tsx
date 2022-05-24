@@ -59,7 +59,7 @@ const Nav:FC = () => {
 
   const windowWidth = useSelector((state:RootState) => state.menu.windowWidth);
 
-  const isLogin = useSelector((state:RootState) => state.auth.isLogin);
+  const accountData = useSelector((state:RootState) => state.auth.accountData);
 
   useEffect(()=>{
     window.addEventListener('resize',setWindowWidth)
@@ -102,7 +102,7 @@ const Nav:FC = () => {
               </div>
             }
             {isHideSideMenu && <FaSearch onClick={displaySearchBar}/>}
-            <Link to={isLogin ? '/account' : '/account/login'}><FaUser/></Link>
+            <Link to={accountData ? '/account' : '/account/login'}><FaUser/></Link>
             <FaShoppingCart onClick={displayCart}/>
         </div>
       </div>

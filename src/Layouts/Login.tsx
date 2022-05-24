@@ -1,10 +1,13 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import Alert from "../Components/Alert";
 import { authSliceActions } from "../store/authSlice";
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from "../firebase-config";
+
 
 const Login:FC = () => {
 
@@ -14,8 +17,11 @@ const Login:FC = () => {
 
   const navigate = useNavigate();
 
+  const usersCollectionRef = collection(db, "users");
+
   const isActionSuccess = useSelector((state:RootState) => state.auth.isActionSuccess);
   const isActionFailure = useSelector((state:RootState) => state.auth.isActionFailure);
+  const accountData = useSelector((state:RootState) => state.auth.accountData);
 
   const [email,setEmail] = useState<string>('');
   const [password,setPassword] = useState<string>('');
@@ -37,15 +43,13 @@ const Login:FC = () => {
       toggleActionSuccess();
       setEmail('');
       setPassword('');
-      dispatch(authSliceActions.Login());
-      setTimeout(()=>navigate('/account'),1000);
-
+      getUserData();
+      
     } catch (err:any) {
       setErrorMessage(err.toString());
       toggleActionFailure();
       console.error(err);
     }
-
   };
 
   const signIn = () => {
@@ -55,6 +59,28 @@ const Login:FC = () => {
   const demoSignIn = () => {
     logInWithEmailAndPassword('nitipat.yt@gmail.com','123456');
   };
+
+  const getUserData = async () => {
+    const data = await getDocs(usersCollectionRef);
+
+    data.docs.forEach((user) => {
+      if (user.data().uid === auth.currentUser?.uid) {
+        localStorage.setItem('authUser',JSON.stringify(user.data()));
+        dispatch(authSliceActions.setAccountData());
+      };
+    });
+
+    auth.onAuthStateChanged(()=>navigate('/account'));
+    
+  };
+
+  useEffect(()=>{
+    
+    if (accountData){
+      navigate('/account');
+    }
+
+  },[])
 
   return (
     <div className="login">
