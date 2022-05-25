@@ -1,3 +1,4 @@
+import { getAuth } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
@@ -21,6 +22,8 @@ import { authSliceActions } from './store/authSlice';
 function App() {
 
   const dispatch = useDispatch();
+
+  const auth =getAuth();
 
   const isDisplaySearchBar = useSelector((state:RootState)=> state.menu.isDisplaySearchBar);
 

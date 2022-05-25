@@ -1,22 +1,23 @@
 import { FC } from 'react'
 import { FaRegPlusSquare, FaRegMinusSquare, FaTrashAlt } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';
-import { iItemCartCard, shopSliceActions } from '../store/productsSlice';
+import { authSliceActions } from '../store/authSlice';
+import { iItemCartCard } from '../store/productsSlice';
 
 const ItemCartCard:FC<iItemCartCard> = (props) => {
 
     const dispatch = useDispatch();
 
     const deleteItemFromCart = () => {
-        dispatch(shopSliceActions.deleteItemFromCart(props));
+        dispatch(authSliceActions.deleteItemFromCart(props));
     };
 
     const clearItemFromCart = () => {
-        dispatch(shopSliceActions.clearItemFromCart(props));
+        dispatch(authSliceActions.clearItemFromCart(props));
     };
 
     const addItemtoCart = () => {
-        dispatch(shopSliceActions.addItemtoCart(props));
+        dispatch(authSliceActions.addItemtoCart(props));
     };
 
     return (

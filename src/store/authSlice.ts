@@ -1,4 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { iItemCartCard } from "./productsSlice";
+
+interface iAccountData {
+    address:[]
+    authProvider:string
+    cart:iItemCartCard[]
+    email:string
+    firstName:string
+    lastName:string
+    orderHistory:[]
+    uid:string
+}
 
 export interface iAuth {
     isActionSuccess:boolean;
@@ -6,7 +18,7 @@ export interface iAuth {
     isAccountHasAddress:boolean;
     isAccountHasOrderHistory:boolean;
     isDisplayAddressForm:boolean;
-    accountData:null|any[];
+    accountData:iAccountData|null;
 }
 
 const initialState:iAuth = {
@@ -34,6 +46,37 @@ const authSlice =createSlice({
         toggleAddressForm(state) {
             state.isDisplayAddressForm = !state.isDisplayAddressForm;
         },
+        addItemtoCart(state,action) {
+            if (state.accountData?.cart.some(product => product.id === action.payload.id)) {
+                state.accountData?.cart.forEach(product => product.id === action.payload.id ? {...product, amount:product.amount++} : product);
+            } else {
+                state.accountData?.cart.push({...action.payload, amount:1});
+            }
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        },
+        deleteItemFromCart(state,action) {
+            state.accountData?.cart.forEach((product,index) => {
+                if (product.id === action.payload.id) {
+                    if (product.amount === 1) {
+                        state.accountData?.cart.splice(index,1)
+                    } else {
+                        return {...product, amount:product.amount--}
+                    }
+                }
+            });
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        },
+        clearItemFromCart(state,action) {
+            state.accountData?.cart.forEach((product,index) => {
+                if (product.id === action.payload.id) {
+                    state.accountData?.cart.splice(index,1)
+                }
+            })
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        }
     }
 });
 

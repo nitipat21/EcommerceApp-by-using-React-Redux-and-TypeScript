@@ -22,21 +22,24 @@ const HomePage:FC = () => {
   const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
   const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
 
+  const getProducts = async () => {
+    const data = await getDocs(productsCollectionRef);
+
+    const newArray:any[] = data.docs.map((doc:any) => {
+      const dataObj = doc.data();
+      return {...dataObj,id:doc.id}
+    });
+
+    dispatch(shopSliceActions.setProducts(newArray));
+    
+  };
+
   useEffect(()=>{
     isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
   },[isDisplayCart,isDisplayMenu]);
 
   useEffect(() => {
-    const getProducts = async () => {
-        const data = await getDocs(productsCollectionRef);
-        const newArray:any[] = data.docs.map((doc:any) => doc.data());
-        console.log(newArray)
-
-        dispatch(shopSliceActions.setProducts(newArray));
-    };
-
     getProducts();
-
   }, []);
 
   return (

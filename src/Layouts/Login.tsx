@@ -70,12 +70,12 @@ const Login:FC = () => {
       };
     });
 
-    auth.onAuthStateChanged(()=>navigate('/account'));
+    auth.onAuthStateChanged(()=>navigate('/'));
     
   };
 
   useEffect(()=>{
-    
+
     if (accountData){
       navigate('/account');
     }

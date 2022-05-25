@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
+import { authSliceActions } from '../store/authSlice'
 import { menuSliceActions } from '../store/menuSlice'
-import { iProductCard, shopSliceActions } from '../store/productsSlice'
+import { iProductCard } from '../store/productsSlice'
 
 
 const BestSellerCard:FC<iProductCard> = (props) => {
@@ -10,9 +11,9 @@ const BestSellerCard:FC<iProductCard> = (props) => {
     const dispatch = useDispatch();
 
     const addItemtoCart = () => {
-        dispatch(shopSliceActions.addItemtoCart(props));
+        dispatch(authSliceActions.addItemtoCart(props));
         dispatch(menuSliceActions.displayCart());
-    }
+    };
     
   return (
     <div className="bestSellerCard">

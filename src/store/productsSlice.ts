@@ -18,12 +18,10 @@ export interface iItemCartCard {
 
 interface productsState {
     productsArray:any[];
-    cartArray:any[];
 }
 
 const initialState:productsState = {
-    productsArray:[],
-    cartArray:[]
+    productsArray:[]
 }
 
 const shopSlice = createSlice({
@@ -32,28 +30,7 @@ const shopSlice = createSlice({
     reducers:{
         setProducts(state,action) {
             state.productsArray = action.payload;
-        },
-        addItemtoCart(state,action) {
-            if (state.cartArray.some(product => product.id === action.payload.id)) {
-                state.cartArray.map(product => product.id === action.payload.id ? {...product, amount:product.amount++} : product)
-            } else {
-                state.cartArray.push({...action.payload, amount:1})
-            }
-        },
-        deleteItemFromCart(state,action) {
-            state.cartArray.map(product => {
-                if (product.id === action.payload.id) {
-                    if (product.amount === 1) {
-                        state.cartArray = state.cartArray.filter(product => product.id !== action.payload.id);
-                    } else {
-                        return {...product, amount:product.amount--}
-                    }
-                }
-            });
-        },
-        clearItemFromCart(state,action) {
-            state.cartArray = state.cartArray.filter(product => product.id !== action.payload.id);
-        }
+        },       
     }
 });
 

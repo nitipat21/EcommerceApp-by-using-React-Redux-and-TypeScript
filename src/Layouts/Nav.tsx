@@ -5,11 +5,13 @@ import { RootState } from "../store";
 import { FC, useEffect } from "react";
 import SubNavProducts from "../Components/SubNavProducts";
 import SubNavOurStory from "../Components/SubNavOurStory";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
  
 
 const Nav:FC = () => {
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -92,7 +94,7 @@ const Nav:FC = () => {
             }
           </div>
         <div className="nav-center">
-            <h1>Brand Logo</h1>
+            <Link to='/'>Brand Logo</Link>
         </div>
         <div className="nav-right">
             {isHideSideMenu && 

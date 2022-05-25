@@ -23,7 +23,16 @@ nav{
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            
+
+            a{
+                text-decoration: none;
+                font-size: var(--h1-large-size);
+                border-bottom: 4px solid #FFFFFF00;
+
+                &:visited{
+                    color: #fff;
+                }
+            }            
         }
 
         .nav-left,.nav-right{

@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../store";
 import { menuSliceActions } from "../store/menuSlice";
 import ItemCartCard from "./ItemCartCard";
@@ -10,14 +11,21 @@ const Cart:FC = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const displayCart = () => {
     dispatch(menuSliceActions.displayCart());
   }
 
-  const cartArray = useSelector((state:RootState) => state.shop.cartArray);
+  const directToLoginPage = () => {
+    dispatch(menuSliceActions.displayCart());
+    setTimeout(()=>navigate('/account/login'),0);
+  }
+
   const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
+  const accountData = useSelector((state:RootState) => state.auth.accountData);
   
-  const itemCartCardElement = cartArray.map(product => {
+  const itemCartCardElement = accountData?.cart.map(product => {
     return  <ItemCartCard   name={product.name}
                             price={product.price}
                             image={product.image}
@@ -31,16 +39,19 @@ const Cart:FC = () => {
   const [totalAmount,setTotalAmount] = useState<number>(0);
 
   useEffect(()=>{
-    if (cartArray.length < 1){
-      displayCart();
-      setSubTotal(0.00);
-      setTotalAmount(0)
-    } else {
-      setSubTotal(cartArray.reduce((subTotal,currentProduct) => subTotal + (currentProduct.price*currentProduct.amount), 0));
-      setTotalAmount(cartArray.reduce((totalAmount,currentProduct) => totalAmount + currentProduct.amount, 0));
+    if (accountData) {
+      if (accountData?.cart.length! < 1) {
+        if(isDisplayCart) {
+          displayCart();
+          setSubTotal(0.00);
+          setTotalAmount(0);
+        }
+      } else {
+        setSubTotal(accountData?.cart.reduce((subTotal,currentProduct) => subTotal + (currentProduct.price*currentProduct.amount), 0)!);
+        setTotalAmount(accountData?.cart.reduce((totalAmount,currentProduct) => totalAmount + currentProduct.amount, 0)!);
+      }
     }
-
-  },[cartArray])
+  },[accountData?.cart])
 
   return (
     <div className={isDisplayCart ? 'cart displayCart' : 'cart'}>
@@ -55,7 +66,7 @@ const Cart:FC = () => {
         </div>
       </div>
       <div className="itemCartCard-Container">
-        {itemCartCardElement}
+        { accountData ? itemCartCardElement : <button onClick={directToLoginPage}>Please Login</button>}
       </div>
       <div className="applyCoupon">
         <input type='text' placeholder="Discount code or gift card"/>
