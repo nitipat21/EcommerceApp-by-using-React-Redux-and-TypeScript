@@ -1,13 +1,10 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { RootState } from "../store";
 import { authSliceActions } from "../store/authSlice";
 import Alert from "./Alert";
 
 const AddressForm = () => {
-
-    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 

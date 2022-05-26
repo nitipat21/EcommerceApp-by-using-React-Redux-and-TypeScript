@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { iItemCartCard } from "./productsSlice";
 
 interface iAccountData {
-    address:string[]
+    address:any[]
     authProvider:string
     cart:iItemCartCard[]
     email:string
@@ -79,7 +79,27 @@ const authSlice =createSlice({
             localStorage.setItem('authUser',JSON.stringify(state.accountData));
         },
         addAccountAddress(state,action) {
-            state.accountData?.address.push(action.payload);
+
+            if (action.payload.isDefault) {
+                state.accountData?.address.unshift(action.payload);
+            } else {
+                state.accountData?.address.push(action.payload);
+            }
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        },
+        deleteAccountAddress(state,action) {
+            state.accountData?.address.splice(action.payload,1);
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        },
+        editAccountAddress(state,action) {
+            if (action.payload.editAccountAddress.isDefault) {
+                state.accountData?.address.splice(action.payload.accountIndex,1);
+                state.accountData?.address.unshift(action.payload.editAccountAddress);
+            } else {
+                state.accountData?.address.splice(action.payload.accountIndex, 1, action.payload.editAccountAddress);
+            }
 
             localStorage.setItem('authUser',JSON.stringify(state.accountData));
         }

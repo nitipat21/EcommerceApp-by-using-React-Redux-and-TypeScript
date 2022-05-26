@@ -1,12 +1,15 @@
 .addressCard{
+    display: flex;
+    flex-direction: column;
     text-align: center;
 
-    .addressCard-info-container{
+    .addressCard-info-container,.addressCard-editAddressForm-container{
         padding-block: 2rem;
     }
 
     .addressCard-button-container{
         display: flex;
+        justify-content: center;
         gap: 1rem;
     }
 }

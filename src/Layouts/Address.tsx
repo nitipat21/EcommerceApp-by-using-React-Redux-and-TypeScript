@@ -17,8 +17,18 @@ const Address = () => {
 
     const accountData = useSelector((state:RootState) => state.auth.accountData);
 
-    const addressCardElement = accountData?.address.map(address => {
-        return <AddressCard props={address}/>
+    const addressCardElement = accountData?.address.map((address,index) => {
+        return  <AddressCard    address1={address.address1}
+                                address2={address.address2}
+                                city={address.city}
+                                country={address.country}
+                                isDefault={address.isDefault}
+                                phone={address.phone}
+                                postal={address.postal}
+                                index={index}
+                                key={index}
+                                isEdit={null}
+                />
     })
 
     return (
