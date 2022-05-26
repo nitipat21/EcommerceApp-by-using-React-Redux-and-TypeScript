@@ -2,14 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { iItemCartCard } from "./productsSlice";
 
 interface iAccountData {
-    address:[]
+    address:string[]
     authProvider:string
     cart:iItemCartCard[]
     email:string
     firstName:string
     lastName:string
-    orderHistory:[]
+    orderHistory:string[]
     uid:string
+    docId:string
 }
 
 export interface iAuth {
@@ -51,7 +52,7 @@ const authSlice =createSlice({
                 state.accountData?.cart.forEach(product => product.id === action.payload.id ? {...product, amount:product.amount++} : product);
             } else {
                 state.accountData?.cart.push({...action.payload, amount:1});
-            }
+            };
 
             localStorage.setItem('authUser',JSON.stringify(state.accountData));
         },
@@ -76,7 +77,13 @@ const authSlice =createSlice({
             })
 
             localStorage.setItem('authUser',JSON.stringify(state.accountData));
+        },
+        addAccountAddress(state,action) {
+            state.accountData?.address.push(action.payload);
+
+            localStorage.setItem('authUser',JSON.stringify(state.accountData));
         }
+
     }
 });
 

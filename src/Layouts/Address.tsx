@@ -13,7 +13,13 @@ const Address = () => {
 
     const toggleAddressForm = () => {
         dispatch(authSliceActions.toggleAddressForm());
-    }
+    };
+
+    const accountData = useSelector((state:RootState) => state.auth.accountData);
+
+    const addressCardElement = accountData?.address.map(address => {
+        return <AddressCard props={address}/>
+    })
 
     return (
         <div className="address">
@@ -25,11 +31,11 @@ const Address = () => {
                     <Link to='/account/'>RETURN TO ACCOUNT DETAILS</Link>
                 </div>
                 <div className="addAddress-button">
-                    <button onClick={toggleAddressForm}>Add a new address</button>
+                    <button onClick={(toggleAddressForm)}>Add a new address</button>
                 </div>
                 {isDisplayAddressForm && <AddressForm/>}
                 <div className="addressCard-container">
-                    <AddressCard/>
+                    {addressCardElement}
                 </div>
             </div>
         </div>

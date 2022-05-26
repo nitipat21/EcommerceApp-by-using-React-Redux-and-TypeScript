@@ -1,4 +1,3 @@
-import { getAuth } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
@@ -6,6 +5,7 @@ import './App.scss';
 import Cart from './Components/Cart';
 import SearchBar from './Components/SearchBar';
 import Menu from './Components/SideMenu';
+import { db } from './firebase-config';
 import Account from './Layouts/Account';
 import Banner0 from './Layouts/Banner0';
 import Footer from './Layouts/Footer';
@@ -18,18 +18,35 @@ import RecoverPage from './Pages/RecoverPage';
 import RegisterPage from './Pages/RegisterPage';
 import { RootState } from './store';
 import { authSliceActions } from './store/authSlice';
+import { updateDoc, doc } from '@firebase/firestore';
 
 function App() {
 
   const dispatch = useDispatch();
 
-  const auth =getAuth();
-
-  const isDisplaySearchBar = useSelector((state:RootState)=> state.menu.isDisplaySearchBar);
+  const isDisplaySearchBar = useSelector((state:RootState) => state.menu.isDisplaySearchBar);
+  const accountData = useSelector((state:RootState) => state.auth.accountData);
 
   useEffect(()=>{
     dispatch(authSliceActions.setAccountData());
+
   },[])
+
+  useEffect(()=>{
+    const userDocRef = doc(db, "users", `${accountData?.docId}`);
+    const update =  async () => {
+      try {
+        await updateDoc(userDocRef, {...accountData});
+        console.log('updated');
+        
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    update();
+
+  },[accountData])
 
   return (
     <>

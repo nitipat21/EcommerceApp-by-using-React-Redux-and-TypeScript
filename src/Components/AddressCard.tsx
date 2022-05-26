@@ -1,6 +1,10 @@
+import { FC } from "react"
 
+interface iAddressCard {
+  props: {}
+}
 
-const AddressCard = () => {
+const AddressCard:FC<iAddressCard> = (props) => {
   return (
     <div className="addressCard">
         <div className="defaultTag">

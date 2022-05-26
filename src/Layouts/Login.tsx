@@ -65,7 +65,8 @@ const Login:FC = () => {
 
     data.docs.forEach((user) => {
       if (user.data().uid === auth.currentUser?.uid) {
-        localStorage.setItem('authUser',JSON.stringify(user.data()));
+        const userData = {...user.data(), docId:user.id}
+        localStorage.setItem('authUser',JSON.stringify(userData));
         dispatch(authSliceActions.setAccountData());
       };
     });
