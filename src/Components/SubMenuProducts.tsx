@@ -1,12 +1,13 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 const SubMenuProducts:FC = () => {
   return (
     <div className='subMenuProducts'>
-        <h5>Best Sellers</h5>
-        <h5>Cakes</h5>
-        <h5>Cookies</h5>
-        <h5>Pies</h5>
+        <Link to='/products'>Best Sellers</Link>
+        <Link to='/products'>Cakes</Link>
+        <Link to='/products'>Cookies</Link>
+        <Link to='/products'>Pies</Link>
     </div>
   )
 }

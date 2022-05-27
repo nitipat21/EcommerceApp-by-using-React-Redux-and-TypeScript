@@ -6,41 +6,9 @@ import Ingredients from '../Layouts/Ingredients';
 import MainProducts from '../Layouts/MainProducts';
 import Reviews from '../Layouts/Reviews';
 import Instagram from '../Layouts/Instagram';
-import { RootState } from '../store';
-import { useDispatch, useSelector } from 'react-redux';
-import { FC, useEffect } from 'react';
-import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../firebase-config';
-import { shopSliceActions } from '../store/productsSlice';
+import { FC } from 'react';
 
 const HomePage:FC = () => {
-  
-  const dispatch = useDispatch();
-
-  const productsCollectionRef = collection(db, "products");
-
-  const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
-  const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
-
-  const getProducts = async () => {
-    const data = await getDocs(productsCollectionRef);
-
-    const newArray:any[] = data.docs.map((doc:any) => {
-      const dataObj = doc.data();
-      return {...dataObj,id:doc.id}
-    });
-
-    dispatch(shopSliceActions.setProducts(newArray));
-    
-  };
-
-  useEffect(()=>{
-    isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
-  },[isDisplayCart,isDisplayMenu]);
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <div className="homePage">       

@@ -1,0 +1,18 @@
+@use '../base/mixins' as mixins;
+
+.productsPage{
+
+
+
+    .main-productsPage{
+        display: grid;
+        grid-template-rows: auto auto;
+
+        @include mixins.medium-up{
+            &{
+                grid-template-columns: minmax(10%,20rem) auto;
+                grid-template-rows: 1fr;
+            }
+        }
+    }
+}

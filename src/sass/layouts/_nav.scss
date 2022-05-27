@@ -26,7 +26,7 @@ nav{
 
             a{
                 text-decoration: none;
-                font-size: var(--h1-large-size);
+                font-size: var(--h1-medium-size);
                 border-bottom: 4px solid #FFFFFF00;
 
                 &:visited{
@@ -48,7 +48,7 @@ nav{
             .navLink-wrapper{
                 display: flex;
                 gap: 2.5rem;
-                padding-right: 2rem;
+                padding-right: 1rem;
 
                 a{
                     border-bottom: 4px solid #FFFFFF00;
@@ -93,7 +93,7 @@ nav{
     @include mixins.large{
         &{
             .nav-wrapper{
-                padding: 2rem 4rem;
+                padding: 1.5rem 2.5rem;
             }
         }
     }

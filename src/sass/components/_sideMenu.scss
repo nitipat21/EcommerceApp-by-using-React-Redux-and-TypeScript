@@ -44,6 +44,15 @@
                     align-items: flex-start;
                     gap: 1rem;
                     padding: 1rem;
+
+                    a{
+                        text-decoration: none;
+                        color: #000;
+
+                        &:visited{
+                            color: #000;
+                        }
+                    }
                 }
             }
         }

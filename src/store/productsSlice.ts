@@ -6,6 +6,7 @@ export interface iProductCard {
     price:number
     rating:number
     id:number
+    isBestSeller:boolean
 }
 
 export interface iItemCartCard {

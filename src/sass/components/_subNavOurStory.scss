@@ -1,8 +1,8 @@
 .subNavOurStory{
     margin: 0 auto;
     max-width: 90rem;
-    max-height: 30rem;
-    padding: 4rem;
+    max-height: 20rem;
+    padding: 0rem 4rem 6.25vw 4rem;
 
     .subNavOurStory-list{
         display: grid;
@@ -17,7 +17,7 @@
             text-align: center;
 
             .ourStory-image{
-                height: 20rem;
+                height: 15rem;
                 img{
                     object-fit: cover;
                     aspect-ratio: 1/1;

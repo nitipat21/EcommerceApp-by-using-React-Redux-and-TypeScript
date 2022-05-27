@@ -19,17 +19,35 @@ import RegisterPage from './Pages/RegisterPage';
 import { RootState } from './store';
 import { authSliceActions } from './store/authSlice';
 import { updateDoc, doc } from '@firebase/firestore';
+import ProductsPage from './Pages/ProductsPage';
+import { collection, getDocs } from '@firebase/firestore';
+import { shopSliceActions } from './store/productsSlice';
 
 function App() {
 
   const dispatch = useDispatch();
 
+  const productsCollectionRef = collection(db, "products");
+
   const isDisplaySearchBar = useSelector((state:RootState) => state.menu.isDisplaySearchBar);
+  const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
+  const isDisplayMenu = useSelector((state:RootState)=> state.menu.isDisplayMenu);
   const accountData = useSelector((state:RootState) => state.auth.accountData);
+
+  const getProducts = async () => {
+    const data = await getDocs(productsCollectionRef);
+    const newArray:any[] = data.docs.map((doc:any) => {
+        const dataObj = doc.data();
+        return {...dataObj,id:doc.id}
+    });
+
+    dispatch(shopSliceActions.setProducts(newArray));
+  };
+
 
   useEffect(()=>{
     dispatch(authSliceActions.setAccountData());
-
+    getProducts();
   },[])
 
   useEffect(()=>{
@@ -43,10 +61,13 @@ function App() {
         console.error(error);
       }
     }
-
     update();
 
   },[accountData])
+
+  useEffect(()=>{
+    isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
+  },[isDisplayCart,isDisplayMenu]);
 
   return (
     <>
@@ -62,6 +83,7 @@ function App() {
       <Route path='/account/register' element={<RegisterPage/>}></Route>
       <Route path='/account/recover' element={<RecoverPage/>}></Route>
       <Route path='/account/address' element={<AddressPage/>}></Route>
+      <Route path='/products' element={<ProductsPage/>}></Route>
     </Routes>
     <Footer/>
     </>

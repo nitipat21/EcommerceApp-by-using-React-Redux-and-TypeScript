@@ -11,10 +11,11 @@ const BestSellers:FC = () => {
   const [bestSellersArray, setBestSellersArray] = useState<any[]>([]);
   
   const bestSellerCardElement = bestSellersArray.map((product) => {
-    return  <BestSellerCard  name={product.name}
+    return  <BestSellerCard    name={product.name}
                             price={product.price}
                             rating={product.rating}
                             image={product.image}
+                            isBestSeller={product.isBestSeller}
                             id={product.id}
                             key={product.id}
             />

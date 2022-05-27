@@ -1,0 +1,12 @@
+@use '../base/mixins' as mixins;
+
+.products-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-block: 4rem;
+    row-gap: 2rem;
+
+    @include mixins.small-up{
+        grid-template-columns: 1fr 1fr;
+    }
+}
