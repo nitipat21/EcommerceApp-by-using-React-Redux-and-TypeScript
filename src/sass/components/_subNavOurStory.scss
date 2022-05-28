@@ -25,7 +25,16 @@
             }
 
             .ourStory-title{
-                font-size: clamp(1rem, 1.5vw, 1.5rem);
+
+                a{
+                    font-size: clamp(1rem, 1.5vw, 1.5rem);
+                    text-decoration: none;
+                    color: #fff;
+                    
+                    &:visited{
+                        color: #fff;
+                    }
+                }
             }
         }
     }

@@ -1,5 +1,3 @@
-import React from 'react'
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import FilterProducts from '../Layouts/FilterProducts'
 import Products from '../Layouts/Products'

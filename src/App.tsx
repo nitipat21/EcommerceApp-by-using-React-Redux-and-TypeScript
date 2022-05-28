@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.scss';
 import Cart from './Components/Cart';
 import SearchBar from './Components/SearchBar';
-import Menu from './Components/SideMenu';
+import SideMenu from './Components/SideMenu';
 import { db } from './firebase-config';
 import Account from './Layouts/Account';
 import Banner0 from './Layouts/Banner0';
@@ -36,20 +36,24 @@ function App() {
 
   const getProducts = async () => {
     const data = await getDocs(productsCollectionRef);
-    const newArray:any[] = data.docs.map((doc:any) => {
+    const sortArray:any[] = [];
+    
+    // sort best-seller product
+    data.docs.forEach((doc:any) => {
         const dataObj = doc.data();
-        return {...dataObj,id:doc.id}
+        dataObj.isBestSeller ? sortArray.unshift({...dataObj,id:doc.id}) : sortArray.push({...dataObj,id:doc.id})
     });
 
-    dispatch(shopSliceActions.setProducts(newArray));
+    dispatch(shopSliceActions.setProducts(sortArray));
   };
 
-
+  // inititate app
   useEffect(()=>{
     dispatch(authSliceActions.setAccountData());
     getProducts();
   },[])
 
+  // update account data to firebase
   useEffect(()=>{
     const userDocRef = doc(db, "users", `${accountData?.docId}`);
     const update =  async () => {
@@ -65,6 +69,7 @@ function App() {
 
   },[accountData])
 
+  // hide overflowY when display page-overlay
   useEffect(()=>{
     isDisplayCart || isDisplayMenu ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "auto"
   },[isDisplayCart,isDisplayMenu]);
@@ -73,7 +78,7 @@ function App() {
     <>
     <PageOverlay/>
     <Banner0/>
-    <Menu/>
+    <SideMenu/>
     <Cart/>
     {isDisplaySearchBar ? <SearchBar/> : <Nav/>}
     <Routes>

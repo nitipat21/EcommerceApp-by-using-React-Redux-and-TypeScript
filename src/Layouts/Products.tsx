@@ -17,6 +17,8 @@ const Products = () => {
                 />
     });
 
+    console.log('render outside')
+
     return (
         <div className="products-container">
             {productCardElement}

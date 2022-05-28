@@ -26,6 +26,15 @@
         li{
             list-style: none;
             font-size:  var(--p-size);
+
+            &.selected{
+                font-weight: 900;
+                text-decoration: underline;
+            }
+
+            &.non-selected{
+                color: #d3d3d3;
+            }
         }
     }
 
