@@ -1,3 +1,54 @@
+@use '../base/mixins' as mixins;
+
 .filterProducts-container{
-    background-color: red;
+    width: 100%;
+    display: grid;
+    padding-block: 2rem;
+    justify-content: center;
+    gap: 2rem;
+    border-bottom: 2px solid #000;
+
+    .filterName{
+
+       input{
+           padding: 0.5rem;
+           font-size: var(--p-size);
+       }
+    }
+
+    .filterType{
+
+        ul{
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        li{
+            list-style: none;
+            font-size:  var(--p-size);
+        }
+    }
+
+    .filterPrice{
+        
+        input{
+            width: 100%;
+        }
+    }
+
+    .filterButton{
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+
+        button{
+            padding: 0.5rem 1rem;
+            font-size: var(--p-size);
+        }
+    }
+
+    @include mixins.medium-up{
+        
+    }
+
 }

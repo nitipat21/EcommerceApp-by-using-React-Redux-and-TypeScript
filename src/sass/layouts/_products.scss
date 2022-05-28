@@ -3,10 +3,24 @@
 .products-container{
     display: grid;
     grid-template-columns: 1fr;
-    padding-block: 4rem;
     row-gap: 2rem;
 
     @include mixins.small-up{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    @include mixins.medium-up{
+        &{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+
+    @include mixins.large{
+        &{
+            grid-template-columns: repeat(auto-fit, minmax(18.75rem,auto));
+            padding: 0;
+            row-gap: 1rem;
+        }
+    }
+
 }

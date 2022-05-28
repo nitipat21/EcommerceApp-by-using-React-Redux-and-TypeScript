@@ -19,10 +19,12 @@ export interface iItemCartCard {
 
 interface productsState {
     productsArray:any[];
+    isDisplayFilter:boolean;
 }
 
 const initialState:productsState = {
-    productsArray:[]
+    productsArray:[],
+    isDisplayFilter:false
 }
 
 const shopSlice = createSlice({
@@ -31,7 +33,10 @@ const shopSlice = createSlice({
     reducers:{
         setProducts(state,action) {
             state.productsArray = action.payload;
-        },       
+        },
+        toggleFilter(state) {
+            state.isDisplayFilter = !state.isDisplayFilter;
+        }
     }
 });
 

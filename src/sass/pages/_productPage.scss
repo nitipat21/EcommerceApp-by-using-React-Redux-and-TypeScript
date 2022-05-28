@@ -2,16 +2,45 @@
 
 .productsPage{
 
-
-
     .main-productsPage{
+        position: relative;
         display: grid;
         grid-template-rows: auto auto;
 
-        @include mixins.medium-up{
+        @include mixins.large{
             &{
-                grid-template-columns: minmax(10%,20rem) auto;
-                grid-template-rows: 1fr;
+                grid-template-columns: 0.5fr auto;
+                grid-template-rows: auto;
+                padding: 4rem;
+                gap: 2rem;
+            }
+        }
+
+        .filter-wrapper{
+            position: relative;
+
+            button:hover{
+                background-color: #000;
+                color: #fff;
+                transition: all 0.3s;
+            }
+
+            .filter-container{
+                position: sticky;
+                top: 20%;
+                padding: 2rem;
+    
+                .displayFilterButton{  
+                    width: 100%;
+                    padding: 0.5rem;
+                    font-size: var(--h1-medium-size);
+                }
+    
+                @include mixins.large{
+                    &{
+                        padding: 1rem 0rem
+                    }
+                }
             }
         }
     }
