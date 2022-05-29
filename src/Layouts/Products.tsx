@@ -4,9 +4,9 @@ import { RootState } from '../store';
 
 const Products = () => {
 
-    const productsArray = useSelector((state:RootState) => state.shop.productsArray);
+    const filteredProductArray = useSelector((state:RootState) => state.shop.filteredProductArray);
 
-    const productCardElement = productsArray.map((product) => {
+    const productCardElement = filteredProductArray.map((product) => {
         return  <ProductCard    name={product.name}
                                 price={product.price}
                                 rating={product.rating}
@@ -16,8 +16,6 @@ const Products = () => {
                                 isBestSeller={product.isBestSeller}
                 />
     });
-
-    console.log('render outside')
 
     return (
         <div className="products-container">

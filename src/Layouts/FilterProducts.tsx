@@ -1,48 +1,39 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
+import { shopSliceActions } from "../store/productsSlice";
 
 
 
 const FilterProducts = () => {
+
+  const dispatch = useDispatch();
 
   const productsArray = useSelector((state:RootState) => state.shop.productsArray);
 
   const [filterName,setFilterName] = useState<string>('');
   const [filterType,setFilterType] = useState<string | null>('All');
   const [filterPrice,setFilterPrice] = useState<number>(99.99);
-  const [newArray,setNewArray] = useState<any[]>([]);
 
   const filterProducts = (name:string, type:string | null,price:number) => {
-    
-    setNewArray([...productsArray]);
-
-    if (name) {
-      const filterNameArray= newArray.filter(product => product.name.toLowerCase().includes(`${name.toLowerCase()}`));
-      setNewArray([...filterNameArray]);
-    }
-
-    if (type !== 'All') {
-      if (type === 'BestSeller') {
-        // filter only best seller
-        const filterBestSellerArray = newArray.filter(product => product.isBestSeller === true);
-        setNewArray([...filterBestSellerArray]);
-      } else {
-        // filter by type name
-        const filterTypeNameArray = newArray.filter(product => product.type === type?.toLowerCase());
-        setNewArray([...filterTypeNameArray]);
+    const newArray = productsArray.filter((product => {
+      if (product.price < price) {
+        if (name === '' || product.name.toLowerCase().includes(name.toLowerCase())) {
+          if (type === 'All' || (type === 'BestSeller' && product.isBestSeller === true) || product.type === type?.toLowerCase()) {
+            return product;
+          }
+        }
       }
-    }
-
-    // filter by price
-    const filterPriceArray = newArray.filter(product => product.price < price);
-    setNewArray([...filterPriceArray]);
+    }));
+    dispatch(shopSliceActions.setfilteredProducts([...newArray]));
   }
 
-  useEffect(()=>{
-    console.log('useEffect')
-    console.log(newArray);
-  },[newArray])
+  const clearFilter = () => {
+    setFilterName('');
+    setFilterType('All');
+    setFilterPrice(99.99);
+  }
+
   return (
     <div className="filterProducts-container">
       <div className="filterName">
@@ -76,7 +67,7 @@ const FilterProducts = () => {
       </div>
       <div className="filterButton">
         <button onClick={()=>filterProducts(filterName,filterType,filterPrice)}>Apply</button>
-        <button>Clear</button>
+        <button onClick={clearFilter}>Clear</button>
       </div>
     </div>
   )

@@ -37,7 +37,7 @@ const shopSlice = createSlice({
             state.productsArray = action.payload;
         },
         setfilteredProducts(state,action) {
-            state.productsArray = action.payload;
+            state.filteredProductArray = action.payload;
         },
         toggleFilter(state) {
             state.isDisplayFilter = !state.isDisplayFilter;

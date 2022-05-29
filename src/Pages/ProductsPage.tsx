@@ -9,6 +9,7 @@ const ProductsPage = () => {
     const dispatch = useDispatch();
 
     const isDisplayFilter = useSelector((state:RootState) => state.shop.isDisplayFilter);
+    const windowWidth = useSelector((state:RootState) => state.menu.windowWidth);
 
     return (
       <div className="productsPage">
@@ -16,7 +17,7 @@ const ProductsPage = () => {
             <div className="filter-wrapper">
               <div className="filter-container">
                 <button className='displayFilterButton'onClick={()=>dispatch(shopSliceActions.toggleFilter())}>Filter</button>
-                {isDisplayFilter && <FilterProducts/>}
+                {(isDisplayFilter || windowWidth>=1024) && <FilterProducts/>}
               </div>
             </div>
               <Products/>

@@ -38,13 +38,14 @@ function App() {
     const data = await getDocs(productsCollectionRef);
     const sortArray:any[] = [];
     
-    // sort best-seller product
+    // sort best-seller product to the top
     data.docs.forEach((doc:any) => {
         const dataObj = doc.data();
         dataObj.isBestSeller ? sortArray.unshift({...dataObj,id:doc.id}) : sortArray.push({...dataObj,id:doc.id})
     });
 
     dispatch(shopSliceActions.setProducts(sortArray));
+    dispatch(shopSliceActions.setfilteredProducts(sortArray));
   };
 
   // inititate app
