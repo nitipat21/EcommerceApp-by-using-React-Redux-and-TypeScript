@@ -45,7 +45,7 @@ function App() {
     });
 
     dispatch(shopSliceActions.setProducts(sortArray));
-    dispatch(shopSliceActions.setfilteredProducts(sortArray));
+    dispatch(shopSliceActions.setFilteredProducts(sortArray));
   };
 
   // inititate app

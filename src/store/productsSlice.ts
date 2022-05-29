@@ -21,12 +21,14 @@ interface productsState {
     productsArray:any[];
     filteredProductArray:any[];
     isDisplayFilter:boolean;
+    filterType:string;
 }
 
 const initialState:productsState = {
     productsArray:[],
     filteredProductArray:[],
-    isDisplayFilter:false
+    isDisplayFilter:false,
+    filterType:'All'
 }
 
 const shopSlice = createSlice({
@@ -36,8 +38,11 @@ const shopSlice = createSlice({
         setProducts(state,action) {
             state.productsArray = action.payload;
         },
-        setfilteredProducts(state,action) {
+        setFilteredProducts(state,action) {
             state.filteredProductArray = action.payload;
+        },
+        setFilterType(state,action) {
+            state.filterType = action.payload;
         },
         toggleFilter(state) {
             state.isDisplayFilter = !state.isDisplayFilter;

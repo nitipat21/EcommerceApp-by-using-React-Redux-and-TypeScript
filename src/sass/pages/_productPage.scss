@@ -6,6 +6,7 @@
         position: relative;
         display: grid;
         grid-template-rows: auto auto;
+        padding-block: 4rem;
 
         @include mixins.large{
             &{

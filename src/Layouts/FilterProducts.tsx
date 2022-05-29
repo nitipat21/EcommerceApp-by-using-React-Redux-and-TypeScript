@@ -10,9 +10,9 @@ const FilterProducts = () => {
   const dispatch = useDispatch();
 
   const productsArray = useSelector((state:RootState) => state.shop.productsArray);
+  const filterType = useSelector((state:RootState) => state.shop.filterType);
 
   const [filterName,setFilterName] = useState<string>('');
-  const [filterType,setFilterType] = useState<string | null>('All');
   const [filterPrice,setFilterPrice] = useState<number>(99.99);
 
   const filterProducts = (name:string, type:string | null,price:number) => {
@@ -25,14 +25,18 @@ const FilterProducts = () => {
         }
       }
     }));
-    dispatch(shopSliceActions.setfilteredProducts([...newArray]));
+    dispatch(shopSliceActions.setFilteredProducts([...newArray]));
   }
 
   const clearFilter = () => {
     setFilterName('');
-    setFilterType('All');
     setFilterPrice(99.99);
+    dispatch(shopSliceActions.setFilterType('All'));
   }
+
+  useEffect(()=>{
+    filterProducts(filterName,filterType,filterPrice);
+  },[[],filterType,filterName,filterPrice])
 
   return (
     <div className="filterProducts-container">
@@ -43,19 +47,19 @@ const FilterProducts = () => {
         <ul>
 
           <li className={filterType === 'All' ? 'selected' : 'non-selected'} 
-              onClick={(event)=>setFilterType(event.currentTarget.textContent)}>All</li>
+              onClick={(event)=>dispatch(shopSliceActions.setFilterType(event.currentTarget.textContent))}>All</li>
 
           <li className={filterType === 'BestSeller' ? 'selected' : 'non-selected'} 
-              onClick={(event)=>setFilterType(event.currentTarget.textContent)}>BestSeller</li>
+              onClick={(event)=>dispatch(shopSliceActions.setFilterType(event.currentTarget.textContent))}>BestSeller</li>
 
           <li className={filterType === 'Cake' ? 'selected' : 'non-selected'} 
-              onClick={(event)=>setFilterType(event.currentTarget.textContent)}>Cake</li>
+              onClick={(event)=>dispatch(shopSliceActions.setFilterType(event.currentTarget.textContent))}>Cake</li>
 
           <li className={filterType === 'Cookie' ? 'selected' : 'non-selected'} 
-              onClick={(event)=>setFilterType(event.currentTarget.textContent)}>Cookie</li>
+              onClick={(event)=>dispatch(shopSliceActions.setFilterType(event.currentTarget.textContent))}>Cookie</li>
           
           <li className={filterType === 'Pie' ? 'selected' : 'non-selected'} 
-              onClick={(event)=>setFilterType(event.currentTarget.textContent)}>Pie</li>
+              onClick={(event)=>dispatch(shopSliceActions.setFilterType(event.currentTarget.textContent))}>Pie</li>
 
         </ul>
       </div>
@@ -66,7 +70,6 @@ const FilterProducts = () => {
         </div>
       </div>
       <div className="filterButton">
-        <button onClick={()=>filterProducts(filterName,filterType,filterPrice)}>Apply</button>
         <button onClick={clearFilter}>Clear</button>
       </div>
     </div>
