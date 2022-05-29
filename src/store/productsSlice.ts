@@ -20,6 +20,7 @@ export interface iItemCartCard {
 interface productsState {
     productsArray:any[];
     filteredProductArray:any[];
+    searchedProductArray:any[];
     isDisplayFilter:boolean;
     filterType:string;
 }
@@ -27,6 +28,7 @@ interface productsState {
 const initialState:productsState = {
     productsArray:[],
     filteredProductArray:[],
+    searchedProductArray:[],
     isDisplayFilter:false,
     filterType:'All'
 }
@@ -40,6 +42,9 @@ const shopSlice = createSlice({
         },
         setFilteredProducts(state,action) {
             state.filteredProductArray = action.payload;
+        },
+        setSearchedProducts(state,action) {
+            state.searchedProductArray = action.payload;
         },
         setFilterType(state,action) {
             state.filterType = action.payload;
