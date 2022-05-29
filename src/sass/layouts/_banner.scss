@@ -7,6 +7,7 @@
     text-align: center;
     padding: 0.5rem;
     font-size: clamp(0.38rem,1.05vw,1.8rem);
+    cursor: pointer;
 
     @include mixins.medium-up{
         &{
