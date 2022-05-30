@@ -2,7 +2,9 @@
     position: absolute;
     background-color: #fff;
     width: 60vw;
+    max-width: 40rem;
     margin-right: 2rem;
     bottom: 0;
     transform: translateY(100%);
+    border: 2px solid #d3d3d3;
 }

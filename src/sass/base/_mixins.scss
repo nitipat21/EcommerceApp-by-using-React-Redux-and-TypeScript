@@ -27,3 +27,9 @@ $extra-large-width: 1440px;
     @content;
   }
 }
+
+@mixin largerThan1920 {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}

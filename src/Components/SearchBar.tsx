@@ -38,7 +38,7 @@ const SearchBar:FC = () => {
         <div className="searchBar-input">
             <input  type='search' placeholder="search products" 
                     value={keyword} onChange={(event)=>setKeyword(event.target.value)} 
-                    onBlur={()=>console.log('blur')} autoFocus
+                    onBlur={displaySearchBar} autoFocus
             />
         </div>
         <div className="searchBar-close">

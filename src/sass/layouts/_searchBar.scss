@@ -13,6 +13,7 @@
     input{
         font-size: clamp(1.25rem, 1.5vw, 2rem);
         width: 60vw;
+        max-width: 40rem;
         padding: 0.5rem;
 
         &:focus{

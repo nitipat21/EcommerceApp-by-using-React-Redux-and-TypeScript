@@ -14,7 +14,7 @@ const SearchedItemCard:FC<iSearchItemCard> = ({name,image,price}) => {
         </div>
         <div className="searchedProductCard-info">
           <h1>{name}</h1>
-          <p>{price}</p>
+          <p>${price}</p>
         </div>
     </div>
   )
