@@ -11,10 +11,11 @@
     z-index: 2;
 
     input{
-        font-size: clamp(1.25rem, 1.5vw, 2rem);
+        font-size: clamp(0.75rem, 1vw, 1.5rem);
         width: 60vw;
         max-width: 40rem;
         padding: 0.5rem;
+        line-height: 1.1;
 
         &:focus{
             outline: #000;

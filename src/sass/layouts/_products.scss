@@ -25,15 +25,9 @@
 
     @include mixins.extra-large{
         &{
-            grid-template-columns: repeat(auto-fit, minmax(calc(20rem),auto));
+            grid-template-columns: repeat(auto-fit, minmax(20rem,auto));
             padding: 0;
             row-gap: 1rem;
-        }
-    }
-
-    @include mixins.largerThan1920{
-        &{
-            grid-template-columns: repeat(auto-fit, minmax(calc(25rem),auto));
         }
     }
 

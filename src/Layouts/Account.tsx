@@ -58,7 +58,7 @@ const Account = () => {
                 <h1>Account Details</h1>
               </div>
               <div className="account-logout">
-                <a onClick={logout}>LOG OUT</a>
+                <button onClick={logout}>LOG OUT</button>
               </div>
               <div className="account-detail-container">
                 <p>{accountData && accountData?.address[0].address1}</p>

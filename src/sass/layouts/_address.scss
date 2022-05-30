@@ -1,4 +1,11 @@
 .address{
+
+    button:hover{
+        background-color: #000;
+        color: #fff;
+        transition: all 0.3s;
+    }
+
     .address-wrapper{
         display: grid;
         gap: 2rem;
@@ -14,8 +21,10 @@
         }
 
         .return-link{
+            text-align: center;
+
             a{
-                font-size: var(--h1-small-size);
+                font-size: clamp(0.75rem,1vw,1.5rem);
             }
         }
 

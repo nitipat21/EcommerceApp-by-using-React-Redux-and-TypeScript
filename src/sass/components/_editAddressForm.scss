@@ -9,9 +9,24 @@
         font-size: var(--p-size);
     }
 
+    input[type='checkbox']{
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        transform: scale(2);
+        padding: 10px;
+        margin-left: 1rem;
+    }
+
     h1{
         font-size: var(--p-size);
         margin-bottom: 1rem;
+    }
+
+    .default-checkbox-container{
+        margin-block: 1rem;
     }
 
     .default-checkbox-container,

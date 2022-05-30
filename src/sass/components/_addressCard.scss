@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    font-size: var(--p-size);
+
+    .defaultTag{
+        h1{
+            font-size: var(--h1-large-size);
+        }
+    }
 
     .addressCard-info-container,.addressCard-editAddressForm-container{
         padding-block: 2rem;

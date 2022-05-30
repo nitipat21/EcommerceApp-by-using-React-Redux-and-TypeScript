@@ -6,6 +6,7 @@
     align-items: center;
     overflow: hidden;
     padding-block: 4rem;
+    position: relative;
     
     .bestSellers-title{
         background-color: #000;
@@ -20,13 +21,39 @@
         }
     }
 
+    .arrows-container{
+        z-index: 2;
+        .arrow-left,.arrow-right{
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            opacity: 0.4;
+        }
+
+        .arrow-left:hover,.arrow-right:hover{
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
+
+        .arrow-left{
+            left: 0%;
+            margin-left: 0.25rem;
+        }
+
+        .arrow-right{
+            right: 0%;
+            margin-right: 0.25rem;
+        }
+    }
+
     .bestSellerCard-container{
         display: flex;
-        overflow-x: auto;
         width: 100vw;
         max-width: 160rem;
         align-self: flex-start;
         scroll-snap-type: x mandatory;
+        transition: all 1s;
         &::-webkit-scrollbar {
             display: none;
         }

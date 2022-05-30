@@ -3,6 +3,7 @@
 .account{
     padding-block: 4rem;
     min-height: 80vh;
+    font-size: clamp(0.75rem,1vw,1.5rem);
 
     .account-wrapper{
 
@@ -23,6 +24,21 @@
             .account-address,
             .addAddress-button{
                 margin-bottom: 1rem;
+            }
+
+            .account-logout{
+
+                button{
+                    padding: 0.25rem 4rem;
+                    margin-top: 0.25rem;
+                    font-weight: 700;
+
+                    &:hover{
+                        background-color: #000;
+                        color: #fff;
+                        transition: all 0.3s;
+                    }
+                }
             }
         
         }
