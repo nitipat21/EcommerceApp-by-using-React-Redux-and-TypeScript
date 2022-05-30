@@ -42,10 +42,11 @@ const BestSellers:FC = () => {
   useEffect(() => {
     if (windowWidth < 480) {
       setProductPerPage(1);
-    } else if (windowWidth > 480) {
+    } else if (windowWidth > 480 && windowWidth < 1024) {
       setProductPerPage(0.5);
+    } else if (windowWidth > 1024) {
+      setProductPerPage(0);
     }
-
   }, [windowWidth])
 
   return (
@@ -57,7 +58,7 @@ const BestSellers:FC = () => {
             {(activePage !== 0 && windowWidth < 1024) && <div className="arrow-left"><FaArrowAltCircleLeft onClick={slideLeft}/></div>}
             {(activePage < ((bestSellersArray.length-1)* productPerPage) && windowWidth < 1024) && <div className="arrow-right"><FaArrowAltCircleRight onClick={slideRight}/></div>}
           </div>
-        <div className="bestSellerCard-container" style={{transform:`translateX(-${activePage * 100 * productPerPage}%)`}}>
+        <div className="bestSellerCard-container" style={{transform:`translateX(-${(activePage * 100) * productPerPage}%)`}}>
             {bestSellerCardElement}
         </div>
     </div>
