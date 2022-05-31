@@ -18,7 +18,7 @@ const Banner0:FC = () => {
 
   return (
     <div className="banner0-container" onClick={()=>directToProducts('All')}>
-        <h1>Enjoy free shipping on orders of $29.99 or more <FaLongArrowAltRight/></h1>
+        <h1>Enjoy free shipping on orders of $99.99 or more <FaLongArrowAltRight/></h1>
     </div>
   )
 }

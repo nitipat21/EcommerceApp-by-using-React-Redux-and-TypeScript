@@ -28,12 +28,13 @@
         gap: 1rem;
 
         .review-text-container{
-            display: flex;
+            display: grid;
             height: 100%;
             width: 100%;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-
+            max-width: 100vw;
+            transition: all 3s;
+            position: relative;
+    
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -49,6 +50,14 @@
         .review-pageCount{
             display: flex;
             gap: 1rem;
+
+            .active-dot{
+                content: '';
+                background-color: #000;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+            }
             
             .dot{
                 content: '';

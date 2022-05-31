@@ -28,6 +28,7 @@ function App() {
   const dispatch = useDispatch();
 
   const productsCollectionRef = collection(db, "products");
+  const reviewsCollectionRef = collection(db,"reviews");
 
   const isDisplaySearchBar = useSelector((state:RootState) => state.menu.isDisplaySearchBar);
   const isDisplayCart = useSelector((state:RootState)=> state.menu.isDisplayCart);
@@ -48,10 +49,23 @@ function App() {
     dispatch(shopSliceActions.setFilteredProducts(sortArray));
   };
 
+  const getReviews =async () => {
+    const data = await getDocs(reviewsCollectionRef);
+    const newArray:any[] = [];
+
+    data.docs.forEach((doc:any) => {
+      const dataObj = doc.data();
+      newArray.push({...dataObj,id:doc.id});
+    });
+
+    dispatch(shopSliceActions.setReviewsArray(newArray));
+  }
+
   // inititate app
   useEffect(()=>{
     dispatch(authSliceActions.setAccountData());
     getProducts();
+    getReviews();
   },[])
 
   // update account data to firebase

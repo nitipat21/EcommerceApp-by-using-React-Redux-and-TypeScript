@@ -21,16 +21,20 @@ interface productsState {
     productsArray:any[];
     filteredProductArray:any[];
     searchedProductArray:any[];
+    reviewsArray:any[];
     isDisplayFilter:boolean;
     filterType:string;
+    activeReviewPage:number;
 }
 
 const initialState:productsState = {
     productsArray:[],
     filteredProductArray:[],
     searchedProductArray:[],
+    reviewsArray:[],
     isDisplayFilter:false,
-    filterType:'All'
+    filterType:'All',
+    activeReviewPage:0
 }
 
 const shopSlice = createSlice({
@@ -51,6 +55,12 @@ const shopSlice = createSlice({
         },
         toggleFilter(state) {
             state.isDisplayFilter = !state.isDisplayFilter;
+        },
+        setActiveReviewPage(state,action) {
+            state.activeReviewPage = action.payload;
+        },
+        setReviewsArray(state,action) {
+            state.reviewsArray = action.payload;
         }
     }
 });

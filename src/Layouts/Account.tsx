@@ -61,12 +61,12 @@ const Account = () => {
                 <button onClick={logout}>LOG OUT</button>
               </div>
               <div className="account-detail-container">
-                <p>{accountData && accountData?.address[0].address1}</p>
-                <p>{accountData && accountData?.address[0].address2}</p>
-                <p>{accountData && accountData?.address[0].city}</p>
-                <p>{accountData && accountData?.address[0].country}</p>
-                <p>{accountData && accountData?.address[0].postal}</p>
-                <p>{accountData && accountData?.address[0].phone}</p>
+                <p>{accountData && accountData?.address[0]?.address1}</p>
+                <p>{accountData && accountData?.address[0]?.address2}</p>
+                <p>{accountData && accountData?.address[0]?.city}</p>
+                <p>{accountData && accountData?.address[0]?.country}</p>
+                <p>{accountData && accountData?.address[0]?.postal}</p>
+                <p>{accountData && accountData?.address[0]?.phone}</p>
               </div>
               <div className="account-address-link">
                 <Link to='/account/address'>VIEW ADDRESSES ({accountData?.address.length})</Link>
