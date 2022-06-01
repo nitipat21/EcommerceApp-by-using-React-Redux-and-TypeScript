@@ -9,6 +9,7 @@ const BestSellers:FC = () => {
 
   const productsArray = useSelector((state:RootState) => state.shop.productsArray);
   const windowWidth = useSelector((state:RootState) => state.menu.windowWidth);
+  const isDisplayCart = useSelector((state:RootState) => state.menu.isDisplayCart);
   
 
   const [bestSellersArray, setBestSellersArray] = useState<any[]>([]);
@@ -55,8 +56,8 @@ const BestSellers:FC = () => {
             <h1>Shop Our Bestsellers</h1>
         </div>
         <div className="arrows-container">
-            {(activePage !== 0 && windowWidth < 1024) && <div className="arrow-left"><FaArrowAltCircleLeft onClick={slideLeft}/></div>}
-            {(activePage < ((bestSellersArray.length-1)* productPerPage) && windowWidth < 1024) && <div className="arrow-right"><FaArrowAltCircleRight onClick={slideRight}/></div>}
+            {(activePage !== 0 && windowWidth < 1024 && !isDisplayCart) && <div className="arrow-left"><FaArrowAltCircleLeft onClick={slideLeft}/></div>}
+            {(activePage < ((bestSellersArray.length-1)* productPerPage ) && windowWidth < 1024 && !isDisplayCart) && <div className="arrow-right"><FaArrowAltCircleRight onClick={slideRight}/></div>}
           </div>
         <div className="bestSellerCard-container" style={{transform:`translateX(-${(activePage * 100) * productPerPage}%)`}}>
             {bestSellerCardElement}
